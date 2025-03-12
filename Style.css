@@ -1,12 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Sora:wght@100..800&display=swap');
 
-body{
-    font-family: Sora;
-    font-weight: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f3f3f3;
+/* Reset default styles */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set up a smooth, responsive layout */
+html {
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+body {
+    font-family: Manrope, sans-serif; /* Default font */
+    color: #333; /* Default text color */
+    line-height: 1.6; /* Better readability */
+    min-height: 100vh; /* Ensure full height */
+}
+.bg {
+    display: flex;
+    position: absolute;
+    background: radial-gradient(50.21% 80.33% at 50% 50%, #011B3C 0%, #090E16 100%);
+    width: 100%;
+    height: 100%;
+    z-index: -2;
 }
