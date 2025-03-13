@@ -274,7 +274,7 @@ main {
 .hero-btns {
     display: flex;
     justify-content: center;
-    gap: 32px;
+    gap: 24px;
 }
 
 /* Marquee Section */
