@@ -24,7 +24,6 @@ body {
     max-width: 1080px;
     width: 90%;
     margin: auto;
-
 }
 
 .bg {
@@ -129,10 +128,87 @@ nav {
     transition: all 0.2s ease;
 }
 
+.hamburger {
+    display: none;
+}
+
 .menu-item:hover {
     color: #FFC300;
 }
 
+/* Mobile Navigation */
+@media (min-width: 769px) {
+    .menu .primary-btn {
+        display: none; /* Hide mobile button on desktop */
+    }
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none; /* Hide menu by default on smaller screens */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Adjust based on nav height */
+        right: 0;
+        background: rgba(5, 17, 32, 0.95);
+        backdrop-filter: blur(12px);
+        border-radius: 8px;
+        width: 220px;
+        padding: 12px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+    }
+
+    .menu.active {
+        display: flex; /* Show when active */
+    }
+
+    .menu-item {
+        width: 100%;
+        padding: 12px;
+        text-align: center;
+    }
+
+    /* Move button inside menu */
+    .primary-btn {
+        display: block;
+        text-align: center;
+        padding: 12px;
+        background: #FFC300;
+        color: #000;
+        font-weight: bold;
+        border-radius: 8px;
+        margin-top: 8px;
+        transition: background 0.3s ease;
+    }
+
+    .primary-btn:hover {
+        background: #e0a800;
+    }
+
+    /* Hide button on navbar in mobile */
+    .hide-mobile {
+        display: none;
+    }
+
+    /* Hamburger Icon */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .hamburger div {
+        width: 25px;
+        height: 3px;
+        background: #ffffff;
+        transition: 0.3s;
+    }
+}
+
+/* Main Content Div */
 main {
     padding-top: 64px;
 }

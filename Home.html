@@ -9,13 +9,19 @@
 <body>
    <div class="bg"></div>
    <nav class="container">
-    <a href="#" class="logo">YOGESH S</a>
-    <div class="menu">
-        <a href="#" class="menu-item">My Works</a>
-        <a href="#" class="menu-item">About Me</a>
-        <a href="#" class="menu-item">Blogs</a>
-    </div>
-    <a href="#" class="primary-btn">Get in touch</a>
+        <a href="#" class="logo">YOGESH S</a>
+        <div class="menu">
+            <a href="#" class="menu-item">My Works</a>
+            <a href="#" class="menu-item">About Me</a>
+            <a href="#" class="menu-item">Blogs</a>
+            <a href="#" class="primary-btn">Get in touch</a>
+        </div>  
+        <a href="#" class="primary-btn hide-mobile">Get in touch</a>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>  
    </nav>
    <main>
         <!-- Hero Section -->
@@ -23,8 +29,7 @@
             <div class="my-image"></div>
             <div class="hero-container">
                 <h1>I'm <span class="my-name">YOGESH</span>, <br>UI UX DESIGNER!</h1>
-                <p class="hero-content">I specialize in creating intuitive and engaging designs for
-                    web and mobile applications.
+                <p class="hero-content">I specialize in creating intuitive and engaging designs for web and mobile applications.
                 </p>
             </div>
             <div class="hero-btns">
@@ -167,5 +172,8 @@
 
         <!-- My Works Section -->
    </main>
+
+
+   <script src="./Script.js"></script>
 </body>
 </html>
