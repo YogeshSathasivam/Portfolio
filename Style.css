@@ -62,7 +62,7 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    border: 1px solid #304B73;
+    border: 2px solid #304B73;
     background: #021C3C;
     color: #F4F4F4;
     font-family: Manrope;
@@ -114,18 +114,16 @@ nav {
 }
 
 .menu-item{
-    display: flex;
+    position: relative;
+    display: inline-block;
     padding: 8px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    color: #cccccc;
+    color: #dddddd;
     font-family: Manrope;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    transition: all 0.2s ease;
+    transition: color 0.3s ease;
 }
 
 .hamburger {
@@ -134,6 +132,24 @@ nav {
 
 .menu-item:hover {
     color: #FFC300;
+}
+
+/* Underline Animation */
+.menu-item::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FFC300;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+/* Expand underline from center on hover */
+.menu-item:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 /* Mobile Navigation */
@@ -245,7 +261,7 @@ main {
 
 .hero-content {
     width: 70%;
-    color: #ABABAB;
+    color: #cccccc;
     text-align: center;
     font-family: Manrope;
     font-size: 24px;
