@@ -44,7 +44,7 @@ body {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 40px 40px;
     pointer-events: none;
-    z-index: 1;
+    z-index: -1;
 }
 
 /* Components */
@@ -75,7 +75,7 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    border: 2px solid #304B73;
+    border: 1.5px solid #304B73;
     background: #021C3C;
     color: #F4F4F4;
     font-family: Manrope;
@@ -101,7 +101,7 @@ nav {
     align-items: center;
     gap: 16px;
     border-radius: 12px;
-    border: 1px solid rgba(181, 209, 247, 0.15);
+    border: 1.5px solid rgba(181, 209, 247, 0.15);
     background: rgba(5, 17, 32, 0.24);
     backdrop-filter: blur(12px);
     justify-content: space-between;
@@ -311,7 +311,7 @@ main {
     position: absolute;
     left: 0;
     width: 100%;
-    height: 1px; /* Border thickness */
+    height: 1.5px; /* Border thickness */
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.01) 100%);
 }
 
@@ -447,10 +447,12 @@ main {
     padding-bottom: 16px;
 }
 
-/* Tabs */
+/* Tabs Container */
 .tabs {
     display: flex;
-    width: 400px;
+    min-width: 200px;
+    max-width: 400px;
+    width: 100%;
     padding: 4px;
     justify-content: center;
     align-items: center;
@@ -459,6 +461,7 @@ main {
     background: #011228;
 }
 
+/* Tab Buttons */
 .tab-btn {
     flex: 1;
     padding: 10px 20px;
@@ -471,40 +474,82 @@ main {
     cursor: pointer;
     border-radius: 4px;
     transition: background 0.3s ease;
+    text-align: center;
+    min-width: 100px;
 }
 
 .tab-btn.active {
-    background: #152A48; /* Slightly lighter dark blue */
+    background: #152A48;
     border-radius: 6px;
 }
 
-/* Works Card */
-.work-card {
-    display: flex;
-    width: 524px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    border: 1px solid #304B73;
-    background: #021C3C;
+/* Responsive Tab Adjustments */
+@media (max-width: 480px) {
+    .tabs {
+        width: 90%;
+    }
+
+    .tab-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
 }
 
+/* Work Cards Container */
+.works-container {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center; /* Ensures proper alignment */
+    gap: 24px;
+    margin: 32px 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    width: 100%;
+}
+
+/* Active State */
+.works-container.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Work Card */
+.work-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Fixes empty space issue */
+    border-radius: 8px;
+    border: 1px solid #304B73;
+    background: #021C3C;
+    width: calc(50% - 24px);
+    max-width: 524px;
+    min-height: auto; /* Allow natural height */
+    transition: width 0.3s ease;
+}
+
+/* Thumbnail */
 .thumbnail {
     width: 100%;
     aspect-ratio: 16/9;
     background-color: #ccc;
+    border-radius: inherit;
+    object-fit: cover;
+    object-position: center;
 }
 
+/* Work Info */
 .work-info {
     display: flex;
     padding: 16px;
     align-items: center;
     gap: 16px;
     align-self: stretch;
-    justify-content: center;
+    justify-content: space-between; /* Distributes elements evenly */
 }
 
+/* Work Title */
 .info {
     display: flex;
     flex-direction: column;
@@ -517,45 +562,84 @@ main {
     color: #F4F4F4;
     font-family: Manrope;
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
-    line-height: 24px; /* 150% */
+    line-height: 24px;
     align-self: stretch;
 }
 
-
+/* Work Description */
 .work-description {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     align-self: stretch;
     overflow: hidden;
-    color: #F4F4F4;
+    color: #cccccc;
     text-overflow: ellipsis;
     font-family: Manrope;
     font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: normal;
 }
 
-.action {
-    display: flex;
-    padding: 12px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    border: 1px solid #304B73;
-    background: #021C3C;
+/* Fix Empty Space Issue in Projects */
+#projects.active .work-card {
+    align-items: stretch; /* Ensures work-info aligns properly */
 }
 
-/* Works Container */
+/* Hide work-info in Shots tab and make thumbnail fill height */
+#shots.active .work-info {
+    display: none;
+}
 
-.works-container {
+/* Ensure thumbnail fills the full card height in Shots */
+#shots.active .thumbnail {
+    aspect-ratio: 4/3; /* 2800x2100 ratio */
+    height: auto; /* Maintain aspect ratio without overflow */
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Maintain uniform card height across all sections */
+.works-container .work-card {
     display: flex;
-    align-items: flex-start;
-    align-content: flex-start;
-    gap: 32px;
-    align-self: stretch;
-    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+/* Fix Alignment Issue on Single Column Layout */
+@media (max-width: 1024px) {
+    .work-card {
+        width: calc(50% - 16px);
+    }
+
+    #shots.active .thumbnail {
+        aspect-ratio: 3/2;
+    }
+}
+
+@media (max-width: 768px) {
+    .works-container {
+        justify-content: center; /* Ensures cards are centered */
+    }
+
+    .work-card {
+        width: 100%;
+        max-width: 400px; /* Keeps a balanced width */
+        margin: auto; /* Centers single card layout */
+    }
+
+    .tab-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    #shots.active .thumbnail {
+        aspect-ratio: 4/3;
+    }
+}
+
+@media (max-width: 480px) {
+    #shots.active .thumbnail {
+        aspect-ratio: 4/3;
+    }
 }
