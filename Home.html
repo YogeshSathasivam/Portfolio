@@ -3,285 +3,394 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yogesh'S Portfolio</title>
+    <meta name="description" content="Yogesh S - UI/UX Designer Portfolio showcasing creative design work">
+    <title>Yogesh S - UI/UX Designer Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="bg-pattern"></div>
-    <div class="bg"></div>
+    <!-- Background elements -->
+    <div class="bg-pattern" aria-hidden="true"></div>
+    <div class="bg" aria-hidden="true"></div>
+    
+    <!-- Navigation -->
     <nav class="container">
-            <a href="#" class="logo">YOGESH S</a>
-            <div class="menu">
-                <a href="#" class="menu-item">My Works</a>
-                <a href="#" class="menu-item">About Me</a>
-                <a href="#" class="menu-item">Blogs</a>
-                <a href="#" class="primary-btn">Get in touch</a>
-            </div>  
-            <a href="#" class="primary-btn hide-mobile">Get in touch</a>
-            <div class="hamburger" onclick="toggleMenu()">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>  
+        <a href="#" class="logo">YOGESH S</a>
+        <div class="menu">
+            <a href="#works" class="menu-item">My Works</a>
+            <!-- <a href="#about" class="menu-item">About Me</a> -->
+            <a href="#blogs" class="menu-item">Blogs</a>
+            <a href="#contact" class="menu-item">Contact</a>
+            <a href="#contact" class="primary-btn">Let's Talk</a>
+        </div>  
+        <a href="#contact" class="primary-btn hide-mobile">Let's Talk</a>
+        <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>  
     </nav>
+    
     <main>
-            <!-- Hero Section -->
-            <div class="hero container">
-                <div class="my-image"></div>
-                <div class="hero-container">
-                    <h1>I'm <span class="my-name">YOGESH</span>, <br>the <span class="my-name">DESIGNER</span> you're looking for!</h1>
-                    <p class="hero-content">Crafting sleek, intuitive and engaging designs for modern platfoms.
-                    </p>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="my-image" aria-label="Profile picture of Yogesh"></div>
+            <div class="hero-container">
+                <h1>I'm <span class="highlight">YOGESH</span>, <br>the <span class="highlight">DESIGNER</span> you're looking for!</h1>
+                <p class="hero-content">Crafting sleek, intuitive and engaging designs for modern platforms.</p>
+            </div>
+            <div class="hero-btns">
+                <a href="#works" class="secondary-btn">Explore my works</a>
+                <a href="#contact" class="primary-btn">Let's Talk</a>
+            </div>
+        </section>
+
+        <!-- Skills Marquee Section -->
+        <section class="marquee-container" aria-label="Skills and tools">
+            <div class="fading-right" aria-hidden="true"></div>
+            <div class="fading-left" aria-hidden="true"></div>
+            <!-- Marquee items -->
+            <div class="marquee-track">
+                <!-- Original Set -->
+                <div class="marquee-item">
+                    <img src="./assets/figma-logo.svg" alt="Figma logo">
+                    <p>Figma</p>
                 </div>
-                <div class="hero-btns">
-                    <a href="#" class="secondary-btn">Explore my works</a>
-                    <a href="#" class="primary-btn">Get in touch</a>
+                <div class="marquee-item">
+                    <img src="./assets/xd-logo.svg" alt="Adobe XD logo">
+                    <p>Adobe XD</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/ai-logo.svg" alt="Adobe Illustrator logo">
+                    <p>Adobe Illustrator</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/photoshop-logo.svg" alt="Adobe Photoshop logo">
+                    <p>Adobe Photoshop</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/midjourney-logo.svg" alt="Midjourney logo">
+                    <p>Midjourney</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/chatgpt-logo.svg" alt="ChatGPT logo">
+                    <p>Chat GPT</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/webflow-logo.svg" alt="Webflow logo">
+                    <p>Webflow</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/framer-logo.svg" alt="Framer logo">
+                    <p>Framer</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/html-logo.svg" alt="HTML logo">
+                    <p>HTML</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/css-logo.svg" alt="CSS logo">
+                    <p>CSS</p>
+                </div>
+                <!-- Duplicated for infinite animation -->
+                <div class="marquee-item">
+                    <img src="./assets/figma-logo.svg" alt="Figma logo">
+                    <p>Figma</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/xd-logo.svg" alt="Adobe XD logo">
+                    <p>Adobe XD</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/ai-logo.svg" alt="Adobe Illustrator logo">
+                    <p>Adobe Illustrator</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/photoshop-logo.svg" alt="Adobe Photoshop logo">
+                    <p>Adobe Photoshop</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/midjourney-logo.svg" alt="Midjourney logo">
+                    <p>Midjourney</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/chatgpt-logo.svg" alt="ChatGPT logo">
+                    <p>Chat GPT</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/webflow-logo.svg" alt="Webflow logo">
+                    <p>Webflow</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/framer-logo.svg" alt="Framer logo">
+                    <p>Framer</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/html-logo.svg" alt="HTML logo">
+                    <p>HTML</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/css-logo.svg" alt="CSS logo">
+                    <p>CSS</p>
+                </div>
+                <!-- Additional duplicates for smoother animation -->
+                <div class="marquee-item">
+                    <img src="./assets/figma-logo.svg" alt="Figma logo">
+                    <p>Figma</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/xd-logo.svg" alt="Adobe XD logo">
+                    <p>Adobe XD</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/ai-logo.svg" alt="Adobe Illustrator logo">
+                    <p>Adobe Illustrator</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/photoshop-logo.svg" alt="Adobe Photoshop logo">
+                    <p>Adobe Photoshop</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/midjourney-logo.svg" alt="Midjourney logo">
+                    <p>Midjourney</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/chatgpt-logo.svg" alt="ChatGPT logo">
+                    <p>Chat GPT</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/webflow-logo.svg" alt="Webflow logo">
+                    <p>Webflow</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/framer-logo.svg" alt="Framer logo">
+                    <p>Framer</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/html-logo.svg" alt="HTML logo">
+                    <p>HTML</p>
+                </div>
+                <div class="marquee-item">
+                    <img src="./assets/css-logo.svg" alt="CSS logo">
+                    <p>CSS</p>
                 </div>
             </div>
+        </section>
 
-            <!-- Marquee Section -->
-            <div class="marquee-container">
-                <div class="fading-right"></div>
-                <div class="fading-left"></div>
-                <!-- Marquee items -->
-                <div class="marquee-track">
-                    <!-- Original Set -->
-                    <div class="marquee-item">
-                        <img src="./assets/figma-logo.svg" alt="">
-                        <p>Figma</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/xd-logo.svg" alt="">
-                        <p>Adobe XD</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/ai-logo.svg" alt="">
-                        <p>Adobe Illustrator</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/photoshop-logo.svg" alt="">
-                        <p>Adobe Photoshop</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/midjourney-logo.svg" alt="">
-                        <p>Midjourney</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/chatgpt-logo.svg" alt="">
-                        <p>Chat GPT</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/webflow-logo.svg" alt="">
-                        <p>Webflow</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/framer-logo.svg" alt="">
-                        <p>Framer</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/html-logo.svg" alt="">
-                        <p>HTML</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/css-logo.svg" alt="">
-                        <p>CSS</p>
-                    </div>
-                    <!-- 1st Duplicate of infinite animation  -->
-                    <div class="marquee-item">
-                        <img src="./assets/figma-logo.svg" alt="">
-                        <p>Figma</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/xd-logo.svg" alt="">
-                        <p>Adobe XD</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/ai-logo.svg" alt="">
-                        <p>Adobe Illustrator</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/photoshop-logo.svg" alt="">
-                        <p>Adobe Photoshop</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/midjourney-logo.svg" alt="">
-                        <p>Midjourney</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/chatgpt-logo.svg" alt="">
-                        <p>Chat GPT</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/webflow-logo.svg" alt="">
-                        <p>Webflow</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/framer-logo.svg" alt="">
-                        <p>Framer</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/html-logo.svg" alt="">
-                        <p>HTML</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/css-logo.svg" alt="">
-                        <p>CSS</p>
-                    </div>
-                    <!-- 2nd Duplicate of infinite animation  -->
-                    <div class="marquee-item">
-                        <img src="./assets/figma-logo.svg" alt="">
-                        <p>Figma</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/xd-logo.svg" alt="">
-                        <p>Adobe XD</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/ai-logo.svg" alt="">
-                        <p>Adobe Illustrator</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/photoshop-logo.svg" alt="">
-                        <p>Adobe Photoshop</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/midjourney-logo.svg" alt="">
-                        <p>Midjourney</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/chatgpt-logo.svg" alt="">
-                        <p>Chat GPT</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/webflow-logo.svg" alt="">
-                        <p>Webflow</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/framer-logo.svg" alt="">
-                        <p>Framer</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/html-logo.svg" alt="">
-                        <p>HTML</p>
-                    </div>
-                    <div class="marquee-item">
-                        <img src="./assets/css-logo.svg" alt="">
-                        <p>CSS</p>
-                    </div>
-                </div>
+        <!-- My Works Section -->
+        <section id="works" class="my-works container">
+            <h2>My <span class="highlight">Works</span></h2>
+            <p class="description">
+                Here are some of my selected works, blending creativity and functionality for engaging user experiences.
+            </p>
+        
+            <!-- Tab Switch -->
+            <div class="tabs" role="tablist">
+                <button class="tab-btn active" id="projects-tab" data-tab="projects" role="tab" aria-selected="true" aria-controls="projects">Projects</button>
+                <button class="tab-btn" id="shots-tab" data-tab="shots" role="tab" aria-selected="false" aria-controls="shots">Shots</button>
             </div>
+        
+            <!-- Projects Section -->
+            <div class="works-container active" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+                <article class="work-card">
+                    <img src="./assets/thumbnails/device-hub.webp" alt="DeviceHub project thumbnail" class="thumbnail">
+                    <div class="work-info">
+                        <div class="info">
+                            <h3 class="work-title">DeviceHub</h3>
+                            <p class="work-description">Device Management Software</p>
+                        </div>
+                        <a href="https://www.behance.net/gallery/190574193/Device-Management-Software-Admin-Flow-UI-Design" 
+                           class="secondary-btn" target="_blank" aria-label="View DeviceHub project">
+                           <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="work-card">
+                    <img src="./assets/thumbnails/device-hub.webp" alt="DeviceHub project thumbnail" class="thumbnail">
+                    <div class="work-info">
+                        <div class="info">
+                            <h3 class="work-title">DeviceHub</h3>
+                            <p class="work-description">Device Management Software</p>
+                        </div>
+                        <a href="https://www.behance.net/gallery/190574193/Device-Management-Software-Admin-Flow-UI-Design" 
+                           class="secondary-btn" target="_blank" aria-label="View DeviceHub project">
+                           <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="work-card">
+                    <img src="./assets/thumbnails/device-hub.webp" alt="DeviceHub project thumbnail" class="thumbnail">
+                    <div class="work-info">
+                        <div class="info">
+                            <h3 class="work-title">DeviceHub</h3>
+                            <p class="work-description">Device Management Software</p>
+                        </div>
+                        <a href="https://www.behance.net/gallery/190574193/Device-Management-Software-Admin-Flow-UI-Design" 
+                           class="secondary-btn" target="_blank" aria-label="View DeviceHub project">
+                           <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="work-card">
+                    <img src="./assets/thumbnails/device-hub.webp" alt="DeviceHub project thumbnail" class="thumbnail">
+                    <div class="work-info">
+                        <div class="info">
+                            <h3 class="work-title">DeviceHub</h3>
+                            <p class="work-description">Device Management Software</p>
+                        </div>
+                        <a href="https://www.behance.net/gallery/190574193/Device-Management-Software-Admin-Flow-UI-Design" 
+                           class="secondary-btn" target="_blank" aria-label="View DeviceHub project">
+                           <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        
+            <!-- Shots Section -->
+            <div class="works-container" id="shots" role="tabpanel" aria-labelledby="shots-tab">
+                <article class="work-card">
+                    <img src="./assets/thumbnails/device-hub.webp" alt="Design shot thumbnail" class="thumbnail">
+                    <div class="work-info">
+                        <div class="info">
+                            <h3 class="work-title">DeviceHub</h3>
+                            <p class="work-description">Device Management Software</p>
+                        </div>
+                        <a href="https://www.behance.net/gallery/190574193/Device-Management-Software-Admin-Flow-UI-Design" 
+                           class="secondary-btn" target="_blank" aria-label="View design shot">
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </article>
+                <article class="work-card">
+                    <img src="./assets/thumbnails/device-hub.webp" alt="Design shot thumbnail" class="thumbnail">
+                    <div class="work-info">
+                        <div class="info">
+                            <h3 class="work-title">DeviceHub</h3>
+                            <p class="work-description">Device Management Software</p>
+                        </div>
+                        <a href="https://www.behance.net/gallery/190574193/Device-Management-Software-Admin-Flow-UI-Design" 
+                           class="secondary-btn" target="_blank" aria-label="View design shot">
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-            <!-- My Works Section -->
-            <div class="my-works container">
-                <h1>My <span class="highlight">Works</span></h1>
-                <p class="description">
-                    Here are some of my selected works, blending creativity and functionality for engaging user experiences.
-                </p>
+        <!-- About Section -->
+        <!-- <section id="about" class="about container">
+            <h2><span class="highlight">About</span> Me</h2>
+            <p class="description">
+                I'm a passionate UI/UX designer with a keen eye for detail and a drive to create intuitive, user-centered experiences.
+            </p>
             
-                <!-- Tab Switch -->
-                <div class="tabs">
-                    <button class="tab-btn active" data-tab="projects">Projects</button>
-                    <button class="tab-btn" data-tab="shots">Shots</button>
-                </div>
-            
-                <!-- Projects Section -->
-                <div class="works-container active" id="projects">
-                    <div class="work-card">
-                        <img src="./assets/thumbnails/device-hub.webp" alt="" class="thumbnail">
-                        <div class="work-info">
-                            <div class="info">
-                                <h3 class="work-title">DeviceHub</h3>
-                                <p class="work-description">Device Management Software</p>
-                            </div>
-                            <a href="https://www.behance.net/gallery/190574193/Device-Management-Software-Admin-Flow-UI-Design" 
-                               class="secondary-btn" target="_blank">
-                               <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
+            <div class="about-content no-image">
+                <div class="about-text">
+                    <div class="about-card">
+                        <h3>My Journey</h3>
+                        <p>As a designer with 1 year of professional experience, I've been focused on developing my skills and building a portfolio of meaningful projects. I'm constantly learning and growing in this dynamic field.</p>
                     </div>
-                    <div class="work-card">
-                        <img src="./assets/thumbnails/device-hub.webp" alt="" class="thumbnail">
-                        <div class="work-info">
-                            <div class="info">
-                                <h3 class="work-title">DeviceHub</h3>
-                                <p class="work-description">Device Management Software</p>
-                            </div>
-                            <a href="https://www.behance.net/gallery/190574193/Device-Management-Software-Admin-Flow-UI-Design" 
-                               class="secondary-btn" target="_blank">
-                               <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="work-card">
-                        <img src="./assets/thumbnails/device-hub.webp" alt="" class="thumbnail">
-                        <div class="work-info">
-                            <div class="info">
-                                <h3 class="work-title">DeviceHub</h3>
-                                <p class="work-description">Device Management Software</p>
-                            </div>
-                            <a href="https://www.behance.net/gallery/190574193/Device-Management-Software-Admin-Flow-UI-Design" 
-                               class="secondary-btn" target="_blank">
-                               <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="work-card">
-                        <img src="./assets/thumbnails/device-hub.webp" alt="" class="thumbnail">
-                        <div class="work-info">
-                            <div class="info">
-                                <h3 class="work-title">DeviceHub</h3>
-                                <p class="work-description">Device Management Software</p>
-                            </div>
-                            <a href="https://www.behance.net/gallery/190574193/Device-Management-Software-Admin-Flow-UI-Design" 
-                               class="secondary-btn" target="_blank">
-                               <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            
-                <!-- Shots Section -->
-                <div class="works-container" id="shots">
-                    <div class="work-card">
-                        <img src="./assets/thumbnails/device-hub.webp" alt="" class="thumbnail">
-                        <div class="work-info">
-                            <div class="info">
-                                <h3 class="work-title">DeviceHub</h3>
-                                <p class="work-description">Device Management Software</p>
-                            </div>
-                            <a href="https://www.behance.net/gallery/190574193/Device-Management-Software-Admin-Flow-UI-Design" 
-                               class="secondary-btn" target="_blank">
-                                <i data-lucide="arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="work-card">
-                        <img src="./assets/thumbnails/device-hub.webp" alt="" class="thumbnail">
-                        <div class="work-info">
-                            <div class="info">
-                                <h3 class="work-title">DeviceHub</h3>
-                                <p class="work-description">Device Management Software</p>
-                            </div>
-                            <a href="https://www.behance.net/gallery/190574193/Device-Management-Software-Admin-Flow-UI-Design" 
-                               class="secondary-btn" target="_blank">
-                                <i data-lucide="arrow-right"></i>
-                            </a>
-                        </div>
+                    
+                    <div class="about-card">
+                        <h3>My Approach</h3>
+                        <p>I believe in user-centered design that balances aesthetics with functionality. My process involves thorough research, thoughtful wireframing, and iterative design to create experiences that truly resonate with users.</p>
                     </div>
                 </div>
             </div>
-
-            <!-- About Section -->
-            <div class="about container">
-                <h1><span class="highlight">About</span> Me</h1>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h2>1+</h2>
+                    <p>Year Experience</p>
+                </div>
+                <div class="stat-card">
+                    <h2>10+</h2>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-card">
+                    <h2>5+</h2>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat-card">
+                    <h2>3+</h2>
+                    <p>Design Awards</p>
+                </div>
             </div>
+        </section> -->
+        
+        <!-- Blogs Section -->
+        <section id="blogs" class="blogs container">
+            <h2>My <span class="highlight">Blogs</span></h2>
+            <p class="description">
+                Thoughts, insights, and explorations from my design journey.
+            </p>
+            
+            <div class="blog-container">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="/placeholder.svg?height=250&width=400" alt="UX Design Trends">
+                    </div>
+                    <div class="blog-content">
+                        <time class="blog-date">March 15, 2025</time>
+                        <h3>UX Design Trends to Watch in 2025</h3>
+                        <p>Exploring the latest trends in user experience design and how they're shaping the digital landscape.</p>
+                        <a href="#" class="blog-link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="/placeholder.svg?height=250&width=400" alt="Design Systems">
+                    </div>
+                    <div class="blog-content">
+                        <time class="blog-date">February 28, 2025</time>
+                        <h3>Building Effective Design Systems</h3>
+                        <p>A comprehensive guide to creating and maintaining design systems that scale with your product.</p>
+                        <a href="#" class="blog-link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="/placeholder.svg?height=250&width=400" alt="AI in Design">
+                    </div>
+                    <div class="blog-content">
+                        <time class="blog-date">January 10, 2025</time>
+                        <h3>The Role of AI in Modern Design Workflows</h3>
+                        <p>How artificial intelligence is transforming design processes and enabling new creative possibilities.</p>
+                        <a href="#" class="blog-link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+            </div>
+            
+            <a href="#" class="secondary-btn view-all">View All Posts</a>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="contact container">
+            <h2>Let's <span class="highlight">Grow</span> Together!</h2>
+            <p class="description">
+                Have ideas, experiences, or questions about design? <br> I'd love to hear from you. Let's exchange knowledge and grow as a creative community.
+            </p>
+            <a href="mailto:hello@yogeshdesign.com" class="primary-btn">Let's Talk</a>
 
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Behance"><i class="fa-brands fa-behance" aria-hidden="true"></i></a>
+                <a href="#" class="social-link" aria-label="Dribbble"><i class="fa-brands fa-dribbble" aria-hidden="true"></i></a>
+                <a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                <a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+            </div>
+        </section>
     </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">&copy; <span id="current-year">2025</span> Yogesh S. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <script>
-        lucide.createIcons();
-    </script>    
-   <script src="./Script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
