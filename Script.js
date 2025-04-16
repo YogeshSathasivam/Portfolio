@@ -1,73 +1,55 @@
-// Navigation bar Hamburger
+// Toggle mobile menu
 function toggleMenu() {
-    document.querySelector(".menu").classList.toggle("active");
+    const menu = document.querySelector('.menu');
+    menu.classList.toggle('active');
+    
+    // Toggle hamburger animation
+    const hamburger = document.querySelector('.hamburger');
+    hamburger.classList.toggle('active');
 }
 
-// Smooth scrolling for anchor links
-document.addEventListener("DOMContentLoaded", function() {
-    // Set current year in footer
-    document.getElementById('current-year').textContent = new Date().getFullYear();
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+    const menu = document.querySelector('.menu');
+    const hamburger = document.querySelector('.hamburger');
     
-    // Handle smooth scrolling
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // Only prevent default if it's not just a "#" link
-            if(this.getAttribute('href') !== "#") {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    // Close mobile menu if open
-                    document.querySelector(".menu").classList.remove("active");
-                    
-                    // Calculate header height for offset
-                    const headerHeight = document.querySelector('nav').offsetHeight;
-                    
-                    // Smooth scroll to target
-                    window.scrollTo({
-                        top: targetElement.offsetTop - (headerHeight + 20), // Offset for fixed header with some padding
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-    
-    // Initialize tabs
-    initTabs();
+    if (menu.classList.contains('active') && 
+        !event.target.closest('.menu') && 
+        !event.target.closest('.hamburger')) {
+        menu.classList.remove('active');
+        hamburger.classList.remove('active');
+    }
 });
 
-// My Works Section Tabs
-function initTabs() {
-    const tabButtons = document.querySelectorAll(".tab-btn");
-    const tabContents = document.querySelectorAll(".works-container");
-
-    tabButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-            // Update ARIA attributes
-            tabButtons.forEach((btn) => {
-                btn.classList.remove("active");
-                btn.setAttribute("aria-selected", "false");
-            });
+// Tab switching functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.works-container');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons and contents
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
             
-            // Add active class to clicked button
-            this.classList.add("active");
-            this.setAttribute("aria-selected", "true");
-
-            // Hide all tab contents
-            tabContents.forEach((content) => {
-                content.classList.remove("active");
-                content.setAttribute("aria-hidden", "true");
+            // Add active class to clicked button and corresponding content
+            button.classList.add('active');
+            const tabId = button.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update ARIA attributes
+            tabButtons.forEach(btn => {
+                const isSelected = btn === button;
+                btn.setAttribute('aria-selected', isSelected);
             });
-
-            // Show the selected tab
-            const target = document.getElementById(this.getAttribute("data-tab"));
-            target.classList.add("active");
-            target.setAttribute("aria-hidden", "false");
         });
     });
-}
+});
+
+// Update copyright year
+document.addEventListener('DOMContentLoaded', function() {
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+});
