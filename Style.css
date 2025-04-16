@@ -1408,3 +1408,9 @@ nav {
     line-height: 1.4; /* Improve line height for readability */
   }
 }
+
+@media (max-width: 776px) {
+  *{
+    overflow-x: hidden;
+  }
+}
