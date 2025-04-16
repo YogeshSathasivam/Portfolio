@@ -62,7 +62,7 @@
   font-size: var(--fs-lg);
   font-weight: 600;
   color: var(--color-text-white);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm); /* Changed from var(--space-md) to var(--space-sm) */
   text-align: left;
   border-bottom: 1px solid var(--color-border-light);
   padding-bottom: var(--space-xs);
@@ -571,26 +571,28 @@ nav {
   height: 100%;
 }
 
+/* Updated work-image class - removed padding */
 .work-image {
   flex: 0 0 45%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-lg);
+  overflow: hidden; /* Add this to prevent overflow */
 }
 
+/* Updated work-image img - removed border-radius */
 .work-image img {
   width: 100%;
   height: 100%;
-  aspect-ratio: 4 / 3; /* Changed from 3/2 to 4/3 */
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: var(--radius-md);
 }
 
+/* Updated work-content class - added padding to all sides */
 .work-content {
   flex: 0 0 55%;
-  padding: var(--space-xl) var(--space-xl) var(--space-xl) 0;
+  padding: var(--space-xl);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -676,7 +678,7 @@ nav {
   background-color: var(--color-about-bg);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border-light);
-  padding: clamp(var(--space-lg), 5vw, var(--space-xxl)); /* Responsive padding */
+  padding: var(--space-xl) var(--space-lg); /* Adjusted padding */
   margin-top: var(--space-md);
 }
 
@@ -684,11 +686,11 @@ nav {
 .about-content {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(var(--space-md), 4vw, var(--space-xl)); /* Responsive gap */
+  gap: var(--space-xl);
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  padding: 0 clamp(var(--space-xs), 3vw, var(--space-xl)); /* Responsive padding */
+  margin-bottom: var(--space-xl);
 }
 
 /* Update for About section without image */
@@ -701,17 +703,21 @@ nav {
   width: 100%;
 }
 
+/* Update the about-text class to ensure proper text wrapping */
 .about-text {
   flex: 1;
-  min-width: 300px;
+  min-width: 280px;
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: var(--space-md); /* Add consistent padding */
 }
 
 /* Update profile container for better responsiveness */
 .profile-container {
-  flex: 0 0 200px; /* Smaller fixed width */
+  flex: 0 0 200px; /* Fixed width */
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -724,7 +730,7 @@ nav {
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transform: rotate(-2deg);
-  width: clamp(150px, 30vw, 200px); /* Responsive width */
+  width: 180px; /* Fixed width */
   max-width: 100%;
 }
 
@@ -735,11 +741,18 @@ nav {
   display: block;
 }
 
+/* Update the about-paragraph class to ensure proper text wrapping */
 .about-paragraph {
   color: var(--color-text-light);
   margin-bottom: var(--space-md);
   font-size: var(--fs-base);
   line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto; /* Enable hyphenation for better text wrapping */
+  text-align: left;
 }
 
 /* Update experience-education section for better responsiveness */
@@ -747,7 +760,7 @@ nav {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: clamp(var(--space-lg), 4vw, var(--space-xl)); /* Responsive padding */
+  gap: var(--space-md); /* Changed from var(--space-lg) to var(--space-md) */
 }
 
 /* Experience and Education Styles */
@@ -758,9 +771,10 @@ nav {
 .experience-item,
 .education-item {
   display: flex;
-  align-items: center;
-  padding: var(--space-md) 0;
+  align-items: flex-start; /* Change from center to flex-start for top alignment */
+  padding: var(--space-sm) 0; /* Changed from var(--space-md) to var(--space-sm) */
   border-bottom: 1px solid var(--color-border-light);
+  position: relative;
 }
 
 .experience-item:last-child,
@@ -772,12 +786,16 @@ nav {
 .institution-logo {
   flex: 0 0 60px;
   height: 60px;
+  min-width: 60px; /* Ensure minimum width */
   background: var(--color-bg-blue-light);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin-right: var(--space-md); /* Standard spacing between logo and text */
+  align-self: flex-start; /* Align to the top */
+  margin-top: 4px; /* Small top margin for better visual alignment */
 }
 
 .company-logo img,
@@ -790,7 +808,7 @@ nav {
 .experience-details,
 .education-details {
   flex: 1;
-  padding: 0 var(--space-md);
+  min-width: 0; /* Allow text to wrap */
 }
 
 .company-name,
@@ -800,6 +818,7 @@ nav {
   color: var(--color-text-white);
   margin-bottom: var(--space-xxs);
   text-align: left;
+  word-break: break-word; /* Allow long names to break */
 }
 
 .experience-period,
@@ -810,16 +829,27 @@ nav {
 
 .job-title,
 .degree-info {
-  flex: 0 0 200px;
+  position: absolute;
+  right: 0;
   text-align: right;
   font-size: var(--fs-base);
   color: var(--color-primary);
   font-weight: 500;
+  max-width: 40%;
+}
+
+.degree-info p {
+  margin-bottom: var(--space-xxs);
+  text-align: right;
 }
 
 .specialization {
   color: var(--color-text-muted);
   font-style: italic;
+  display: block; /* Always display as block */
+  font-size: var(--fs-sm);
+  margin-top: 2px;
+  text-align: right;
 }
 
 /* ===== BLOGS SECTION ===== */
@@ -1005,14 +1035,15 @@ nav {
     flex-direction: row;
   }
 
+  /* Updated work-image for tablet */
   .work-image {
     flex: 0 0 40%;
-    padding: var(--space-md);
   }
 
+  /* Updated work-content for tablet - padding on all sides */
   .work-content {
     flex: 0 0 60%;
-    padding: var(--space-lg) var(--space-lg) var(--space-lg) 0;
+    padding: var(--space-lg);
   }
 
   .work-title {
@@ -1100,14 +1131,15 @@ nav {
     flex-direction: column;
   }
 
+  /* Updated work-image for mobile */
   .work-image {
     flex: 0 0 auto;
-    padding: var(--space-md);
   }
 
+  /* Updated work-content for mobile - padding on all sides */
   .work-content {
     flex: 0 0 auto;
-    padding: 0 var(--space-md) var(--space-md);
+    padding: var(--space-md);
   }
 
   /* Shot cards responsive for mobile */
@@ -1118,22 +1150,20 @@ nav {
 
   /* About section responsive adjustments */
   .about-wrapper {
-    padding: var(--space-md);
+    padding: var(--space-lg);
   }
 
-  .about-content {
-    padding: 0 var(--space-md);
+  .section-subtitle {
+    font-size: var(--fs-md);
+    text-align: center;
   }
 
-  .experience-education {
-    padding: var(--space-md);
+  /* Ensure about paragraphs don't overflow */
+  .about-paragraph {
+    padding-right: 0;
   }
 
-  .job-title,
-  .degree-info {
-    flex: 0 0 150px;
-  }
-
+  /* Experience and Education mobile layout */
   .experience-item,
   .education-item {
     flex-wrap: wrap;
@@ -1141,10 +1171,17 @@ nav {
 
   .job-title,
   .degree-info {
-    width: 100%;
-    text-align: left;
+    position: static;
+    flex: 0 0 100%;
     margin-top: var(--space-xs);
-    padding-left: calc(60px + var(--space-md));
+    margin-left: 76px;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .degree-info p,
+  .specialization {
+    text-align: left;
   }
 }
 
@@ -1176,10 +1213,7 @@ nav {
     font-size: var(--fs-sm);
   }
 
-  .work-image {
-    padding: var(--space-xs);
-  }
-
+  /* Updated work-content for smaller screens - padding on all sides */
   .work-content {
     padding: var(--space-xs);
   }
@@ -1198,41 +1232,36 @@ nav {
 
   /* About section responsive adjustments */
   .about-wrapper {
-    padding: var(--space-xs) 0;
+    padding: var(--space-md);
+    border-radius: var(--radius-md); /* Smaller border radius on mobile */
   }
 
   .about-content {
-    padding: 0 var(--space-xs);
+    padding: 0;
+    gap: var(--space-md);
   }
 
-  .experience-education {
-    padding: var(--space-xs);
+  .profile-container {
+    flex: 0 0 100%;
+    margin-bottom: var(--space-md);
+  }
+
+  .profile-frame {
+    width: 150px;
+    margin: 0 auto;
   }
 
   .company-logo,
   .institution-logo {
-    flex: 0 0 40px;
-    height: 40px;
-  }
-
-  .experience-details,
-  .education-details {
-    padding: 0 var(--space-xs);
+    flex: 0 0 50px;
+    height: 50px;
+    min-width: 50px;
   }
 
   .job-title,
   .degree-info {
-    padding-left: calc(40px + var(--space-xs));
-  }
-
-  .company-name,
-  .institution-name {
-    font-size: var(--fs-base);
-  }
-
-  .experience-period,
-  .education-period {
-    font-size: var(--fs-xs);
+    margin-left: 66px; /* Logo width (50px) + right margin (16px) */
+    font-size: var(--fs-sm);
   }
 
   .social-links {
@@ -1241,115 +1270,92 @@ nav {
     gap: var(--space-sm);
   }
 
-  /* Override for blog card titles to ensure they stay left-aligned */
-  .blog-content h3 {
-    text-align: left;
-  }
-
-  /* Override for work card titles to ensure they stay left-aligned */
-  .work-title {
-    text-align: left;
-  }
-
-  .work-description {
-    text-align: left;
-  }
-}
-
-@media (max-width: 480px) {
-  /* Keep existing media query styles */
-
-  /* Update About section responsive adjustments for very small screens */
-  .about-wrapper {
-    padding: var(--space-md) var(--space-xs);
-    border-radius: var(--radius-md); /* Smaller border radius on mobile */
+  /* Add this media query to adjust padding for smaller screens */
+  .about-text {
+    padding-right: 0; /* Remove right padding on very small screens */
+    padding: 0 var(--space-xs); /* Add consistent padding on all sides */
   }
 
   .about-content {
-    gap: var(--space-md);
-  }
-
-  .about-text {
     padding: 0 var(--space-xs);
+  }
+}
+
+@media (max-width: 360px) {
+  .about-wrapper {
+    padding: var(--space-sm);
   }
 
   .profile-frame {
-    width: 140px; /* Fixed smaller size on mobile */
-  }
-
-  .experience-education {
-    padding: var(--space-md) var(--space-xs);
+    width: 120px;
   }
 
   .company-logo,
   .institution-logo {
     flex: 0 0 40px;
     height: 40px;
-    min-width: 40px; /* Ensure minimum width */
+    min-width: 40px;
+    margin-right: var(--space-md); /* Keep the same spacing as larger screens */
   }
 
   .experience-details,
   .education-details {
-    padding: 0 var(--space-xs);
-    flex: 1;
-    min-width: 0; /* Allow text to wrap */
-  }
-
-  .company-name,
-  .institution-name {
-    font-size: var(--fs-base);
-    word-break: break-word; /* Allow long names to break */
+    padding-right: 0;
   }
 
   .job-title,
   .degree-info {
-    padding-left: calc(40px + var(--space-xs));
-    font-size: var(--fs-sm); /* Smaller font size on mobile */
+    margin-left: 56px; /* Logo width (40px) + right margin (16px) */
   }
 
-  /* Ensure paragraphs in about section are properly aligned on mobile */
+  /* Ensure description doesn't overflow on very small screens */
+  .description {
+    width: 100%;
+  }
+
+  /* Add these new rules for very small screens */
+  .about-text {
+    min-width: 100%; /* Override the min-width for very small screens */
+    padding-right: 0; /* Remove right padding on very small screens */
+  }
+
   .about-paragraph {
-    text-align: left;
-  }
-}
-
-/* Add a new media query for very small screens */
-@media (max-width: 360px) {
-  .about-wrapper {
-    padding: var(--space-xs);
+    font-size: calc(var(--fs-base) - 1px); /* Slightly smaller font size */
+    word-break: break-word; /* Force word breaks if needed */
   }
 
-  .profile-frame {
-    width: 120px; /* Even smaller on very small screens */
-  }
-
-  .experience-item,
-  .education-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-xs);
-  }
-
-  .company-logo,
-  .institution-logo {
-    margin-bottom: var(--space-xxs);
-  }
-
-  .experience-details,
-  .education-details {
+  .about-content {
+    width: 100%;
     padding: 0;
   }
+}
 
-  .job-title,
-  .degree-info {
-    padding-left: 0;
-    margin-top: var(--space-xxs);
+@media (max-width: 576px) {
+  .degree-info p {
+    line-height: 1.4; /* Improve line height for readability */
   }
 }
 
-@media (max-width: 776px) {
-  .section-subtitle {
-    font-size: var(--fs-md);
-    text-align: center;
+@media (min-width: 777px) and (max-width: 999px) {
+  .work-card-inner {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .work-image {
+    flex: 0 0 40%;
+    min-height: 250px; /* Set a minimum height */
+    max-height: 300px; /* Set a maximum height */
+  }
+
+  .work-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .work-content {
+    flex: 0 0 60%;
+    padding: var(--space-md);
   }
 }
