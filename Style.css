@@ -57,15 +57,38 @@
   --transition-normal: 0.3s ease;
 }
 
-/* Add styles for the new section subtitle */
-.section-subtitle {
-  font-size: var(--fs-lg);
-  font-weight: 600;
-  color: var(--color-text-white);
-  margin-bottom: var(--space-sm); /* Changed from var(--space-md) to var(--space-sm) */
-  text-align: left;
-  border-bottom: 1px solid var(--color-border-light);
-  padding-bottom: var(--space-xs);
+/* Responsive root variables */
+@media (max-width: 1024px) {
+  :root {
+    --fs-xxl: 2.25rem;
+    --fs-xl: 1.625rem;
+    --fs-lg: 1.375rem;
+    --section-padding-top: 40px;
+    --section-padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 776px) {
+  :root {
+    --fs-xxl: 2rem;
+    --fs-xl: 1.5rem;
+    --fs-lg: 1.25rem;
+    --fs-md: 1.125rem;
+    --section-padding-top: 32px;
+    --section-padding-bottom: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --fs-xxl: 1.75rem;
+    --fs-xl: 1.375rem;
+    --fs-lg: 1.125rem;
+    --fs-md: 1rem;
+    --fs-base: 0.9375rem;
+    --section-padding-top: 24px;
+    --section-padding-bottom: 24px;
+  }
 }
 
 /* ===== RESET ===== */
@@ -122,8 +145,21 @@ button {
   box-sizing: border-box;
 }
 
+@media (max-width: 776px) {
+  .container {
+    width: 100%;
+    padding: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: var(--space-sm);
+  }
+}
+
 main {
-  padding-top: var(--space-xl);
+  padding-top: calc(var(--space-xl) + 80px); /* Increased padding to account for fixed navbar */
   overflow-x: hidden; /* Only prevent horizontal scrolling */
   overflow-y: visible; /* Allow vertical scrolling */
   width: 100%;
@@ -136,6 +172,13 @@ section {
   width: 100%;
   overflow-x: hidden; /* Only prevent horizontal scrolling */
   overflow-y: visible; /* Allow vertical scrolling */
+}
+
+@media (max-width: 776px) {
+  section {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
 }
 
 /* ===== BACKGROUND ===== */
@@ -208,6 +251,30 @@ p {
   padding-bottom: var(--space-md);
 }
 
+@media (max-width: 480px) {
+  .description {
+    width: 100%;
+  }
+}
+
+/* Add styles for the new section subtitle */
+.section-subtitle {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-text-white);
+  margin-bottom: var(--space-sm); /* Changed from var(--space-md) to var(--space-sm) */
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-light);
+  padding-bottom: var(--space-xs);
+}
+
+@media (max-width: 776px) {
+  .section-subtitle {
+    font-size: var(--fs-md);
+    text-align: center;
+  }
+}
+
 /* ===== BUTTONS ===== */
 .primary-btn {
   display: inline-flex;
@@ -252,24 +319,35 @@ p {
 }
 
 /* ===== NAVIGATION ===== */
-/* Update the nav styles to ensure proper padding on all screen sizes */
 nav {
-  top: var(--space-md);
-  position: sticky;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  padding: var(--space-xs) var(--space-md); /* Ensure horizontal padding */
+  padding: var(--space-xs) var(--space-md);
   align-items: center;
   gap: var(--space-md);
-  border-radius: var(--radius-lg);
-  border: 1.5px solid var(--color-border-lighter);
-  background: rgba(5, 17, 32, 0.24);
+  border-bottom: 1.5px solid var(--color-border-lighter);
+  background: rgba(5, 17, 32, 0.5);
   backdrop-filter: blur(12px);
   justify-content: space-between;
   z-index: 100;
-  width: 90%; /* Change from 100% to 90% to ensure margins on sides */
-  max-width: 100%;
+  width: 100%;
   box-sizing: border-box;
-  margin: 0 auto; /* Center the navbar */
+}
+
+@media (min-width: 777px) {
+  nav {
+    width: 90%;
+    max-width: 1080px;
+    margin: var(--space-md) auto;
+    border: 1.5px solid var(--color-border-lighter);
+    border-radius: var(--radius-lg);
+    top: var(--space-md);
+    transform: translateX(-50%);
+    left: 50%;
+  }
 }
 
 .logo {
@@ -349,14 +427,138 @@ nav {
   transform: translateY(-8px) rotate(-45deg);
 }
 
+/* Navigation Responsive Styles */
+@media (min-width: 777px) {
+  .menu .primary-btn {
+    display: none;
+  }
+
+  .hide-mobile {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 776px) {
+  /* Fix navbar position */
+  nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: var(--space-xs) var(--space-md) !important;
+    border-radius: 0 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--color-border-lighter) !important;
+    background: rgba(5, 17, 32, 0.5) !important;
+    backdrop-filter: blur(12px) !important;
+    z-index: 1000 !important;
+    transform: none !important;
+  }
+
+  /* Mobile menu styles */
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(5, 17, 32, 0.94);
+    backdrop-filter: blur(12px);
+    border-radius: var(--radius-md);
+    width: 220px;
+    padding: var(--space-md);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    z-index: 1000;
+    margin-top: 0;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu-item {
+    width: 100%;
+  }
+
+  .menu .primary-btn {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: var(--space-xs);
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Update main padding to account for the fixed navbar */
+  main {
+    padding-top: 70px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: var(--space-xs) var(--space-sm) !important;
+  }
+
+  .logo {
+    padding: var(--space-xxs) var(--space-xs);
+    font-size: calc(var(--fs-base) + 1px);
+  }
+
+  .hamburger {
+    padding: var(--space-xxs);
+  }
+
+  /* Update main padding for smaller screens */
+  main {
+    padding-top: 60px !important;
+  }
+}
+
+/* Update hero section margin/padding to work with fixed navbar */
+
 /* ===== HERO SECTION ===== */
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-lg);
-  margin: 96px auto; /* Changed from padding to margin as in your original version */
+  margin: 0 auto;
+  padding-top: 40px;
   width: 100%;
+}
+
+@media (min-width: 777px) {
+  .hero {
+    margin: 60px auto; /* Adjusted margin for desktop */
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 776px) {
+  .hero {
+    margin: 20px auto;
+    padding-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    margin: 10px auto;
+    padding-top: 20px;
+  }
 }
 
 .my-image {
@@ -392,6 +594,39 @@ nav {
   display: flex;
   justify-content: center;
   gap: var(--space-lg);
+}
+
+/* Hero Section Responsive Styles */
+@media (max-width: 1024px) {
+  .hero {
+    margin: 40px auto 80px; /* Adjusted margin */
+  }
+}
+
+@media (max-width: 776px) {
+  .hero {
+    margin: 20px auto 64px; /* Adjusted margin */
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .hero-content {
+    width: 90%;
+    font-size: var(--fs-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    margin: 10px auto 48px; /* Adjusted margin */
+  }
+
+  .hero-btns {
+    flex-direction: column;
+  }
 }
 
 /* ===== MARQUEE SECTION ===== */
@@ -499,6 +734,25 @@ nav {
   white-space: nowrap;
   width: max-content;
   min-width: 100%;
+}
+
+/* Marquee Responsive Styles */
+@media (max-width: 776px) {
+  .marquee-container {
+    padding: var(--space-md) 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee-container {
+    padding: var(--space-md) 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .marquee-container {
+    padding: var(--space-md) 10px;
+  }
 }
 
 /* ===== WORKS SECTION ===== */
@@ -692,6 +946,162 @@ nav {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Works Section Responsive Styles */
+@media (max-width: 1024px) {
+  /* Work card responsive adjustments for tablet - maintain horizontal layout */
+  .work-card-inner {
+    flex-direction: row;
+  }
+
+  /* Updated work-image for tablet */
+  .work-image {
+    flex: 0 0 40%;
+    aspect-ratio: 4 / 3; /* Maintain 4:3 aspect ratio */
+  }
+
+  /* Updated work-content for tablet - padding on all sides */
+  .work-content {
+    flex: 0 0 60%;
+    padding: var(--space-lg);
+  }
+
+  .work-title {
+    font-size: var(--fs-md);
+  }
+
+  .work-description {
+    font-size: var(--fs-sm);
+  }
+}
+
+@media (min-width: 777px) and (max-width: 999px) {
+  .work-card-inner {
+    flex-direction: row;
+    align-items: stretch;
+    height: 100%;
+  }
+
+  .work-image {
+    flex: 0 0 40%;
+    position: relative;
+    aspect-ratio: 4 / 3; /* Enforce 4:3 aspect ratio */
+    height: auto; /* Remove fixed height */
+    min-height: 0; /* Remove min-height */
+    width: auto; /* Let width be determined by flex and aspect ratio */
+  }
+
+  .work-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .work-content {
+    flex: 0 0 60%;
+    padding: var(--space-md);
+  }
+}
+
+/* Add a more specific media query for the problematic range */
+@media (min-width: 777px) and (max-width: 930px) {
+  .work-card-inner {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+  }
+
+  .work-image {
+    flex: 0 0 40%;
+    position: relative;
+    aspect-ratio: 4 / 3 !important; /* Force 4:3 aspect ratio with !important */
+    height: auto !important; /* Override any height settings */
+    min-height: 0 !important; /* Override any min-height settings */
+    width: auto; /* Let width be determined by flex */
+  }
+
+  .work-content {
+    flex: 0 0 60%;
+  }
+}
+
+@media (max-width: 776px) {
+  .tabs {
+    width: 90%;
+  }
+
+  /* Work card responsive adjustments for mobile */
+  .work-card-inner {
+    flex-direction: column;
+  }
+
+  /* Updated work-image for mobile */
+  .work-image {
+    flex: 0 0 auto;
+    position: relative;
+    aspect-ratio: 4 / 3; /* Maintain 4:3 aspect ratio */
+    height: auto; /* Remove fixed height */
+    width: 100%;
+  }
+
+  .work-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Updated work-content for mobile - padding on all sides */
+  .work-content {
+    flex: 0 0 auto;
+    padding: var(--space-md);
+  }
+
+  /* Shot cards responsive for mobile */
+  #shots.active {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  /* Fix for work cards on mobile */
+  .work-card {
+    margin: 0 var(--space-xs); /* Add margin to cards */
+    width: calc(100% - var(--space-xs) * 2); /* Adjust width to account for margin */
+  }
+}
+
+@media (max-width: 480px) {
+  .tabs {
+    width: 90%;
+  }
+
+  .tab-btn {
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--fs-sm);
+  }
+
+  /* Keep consistent padding for work-content */
+  .work-content {
+    padding: var(--space-md);
+  }
+
+  .work-category {
+    font-size: calc(var(--fs-xs) - 1px);
+  }
+
+  .work-title {
+    font-size: var(--fs-base);
+  }
+
+  .work-meta {
+    font-size: calc(var(--fs-xs) + 1px);
+  }
 }
 
 /* ===== ABOUT SECTION ===== */
@@ -893,6 +1303,136 @@ nav {
   text-align: right;
 }
 
+/* About Section Responsive Styles */
+@media (max-width: 776px) {
+  .about-wrapper {
+    padding: var(--space-lg);
+    margin: 0 var(--space-xs);
+    width: calc(100% - var(--space-xs) * 2);
+  }
+
+  .about-content {
+    padding: 0;
+    gap: var(--space-md);
+  }
+
+  /* Ensure about paragraphs don't overflow */
+  .about-paragraph {
+    padding-right: 0;
+  }
+
+  /* Experience and Education mobile layout */
+  .experience-item,
+  .education-item {
+    flex-wrap: wrap;
+  }
+
+  .job-title,
+  .degree-info {
+    position: static;
+    flex: 0 0 100%;
+    margin-top: var(--space-xs);
+    margin-left: 76px;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .degree-info p,
+  .specialization {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-wrapper {
+    padding: var(--space-md);
+    border-radius: var(--radius-md); /* Smaller border radius on mobile */
+  }
+
+  .profile-container {
+    flex: 0 0 100%;
+    margin-bottom: var(--space-md);
+  }
+
+  .profile-frame {
+    width: 150px;
+    margin: 0 auto;
+  }
+
+  .company-logo,
+  .institution-logo {
+    flex: 0 0 50px;
+    height: 50px;
+    min-width: 50px;
+  }
+
+  .job-title,
+  .degree-info {
+    margin-left: 66px; /* Logo width (50px) + right margin (16px) */
+    font-size: var(--fs-sm);
+  }
+
+  /* Add this media query to adjust padding for smaller screens */
+  .about-text {
+    padding-right: 0; /* Remove right padding on very small screens */
+    padding: 0 var(--space-xs); /* Add consistent padding on all sides */
+  }
+
+  .about-content {
+    padding: 0 var(--space-xs);
+  }
+}
+
+@media (max-width: 360px) {
+  .about-wrapper {
+    padding: var(--space-sm);
+  }
+
+  .profile-frame {
+    width: 120px;
+  }
+
+  .company-logo,
+  .institution-logo {
+    flex: 0 0 40px;
+    height: 40px;
+    min-width: 40px;
+    margin-right: var(--space-md); /* Keep the same spacing as larger screens */
+  }
+
+  .experience-details,
+  .education-details {
+    padding-right: 0;
+  }
+
+  .job-title,
+  .degree-info {
+    margin-left: 56px; /* Logo width (40px) + right margin (16px) */
+  }
+
+  /* Add these new rules for very small screens */
+  .about-text {
+    min-width: 100%; /* Override the min-width for very small screens */
+    padding-right: 0; /* Remove right padding on very small screens */
+  }
+
+  .about-paragraph {
+    font-size: calc(var(--fs-base) - 1px); /* Slightly smaller font size */
+    word-break: break-word; /* Force word breaks if needed */
+  }
+
+  .about-content {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .degree-info p {
+    line-height: 1.4; /* Improve line height for readability */
+  }
+}
+
 /* ===== BLOGS SECTION ===== */
 .blogs {
   padding-top: var(--section-padding-top);
@@ -991,6 +1531,13 @@ nav {
   margin-top: var(--space-md);
 }
 
+/* Blogs Section Responsive Styles */
+@media (max-width: 776px) {
+  .blog-card {
+    min-width: 280px;
+  }
+}
+
 /* ===== CONTACT SECTION ===== */
 .contact {
   padding-top: var(--section-padding-top);
@@ -1040,6 +1587,15 @@ nav {
   transform: translateY(-3px);
 }
 
+/* Contact Section Responsive Styles */
+@media (max-width: 480px) {
+  .social-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+}
+
 /* ===== FOOTER ===== */
 .footer {
   padding: var(--space-lg) 0;
@@ -1053,470 +1609,10 @@ nav {
   margin-bottom: 0;
 }
 
-/* ===== RESPONSIVE STYLES ===== */
-@media (min-width: 777px) {
-  .menu .primary-btn {
-    display: none;
-  }
-
-  .hide-mobile {
-    display: inline-flex;
-  }
-}
-
-@media (max-width: 1024px) {
-  :root {
-    --fs-xxl: 2.25rem;
-    --fs-xl: 1.625rem;
-    --fs-lg: 1.375rem;
-    --section-padding-top: 40px;
-    --section-padding-bottom: 40px;
-  }
-
-  .hero {
-    margin: 80px auto;
-  }
-
-  /* Work card responsive adjustments for tablet - maintain horizontal layout */
-  .work-card-inner {
-    flex-direction: row;
-  }
-
-  /* Updated work-image for tablet */
-  .work-image {
-    flex: 0 0 40%;
-    aspect-ratio: 4 / 3; /* Maintain 4:3 aspect ratio */
-  }
-
-  /* Updated work-content for tablet - padding on all sides */
-  .work-content {
-    flex: 0 0 60%;
-    padding: var(--space-lg);
-  }
-
-  .work-title {
-    font-size: var(--fs-md);
-  }
-
-  .work-description {
-    font-size: var(--fs-sm);
-  }
-
-  /* Shot cards responsive for tablet */
-  /* Keep the 2-column layout for tablets */
-  #shots.active {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Fix for screens between 777px and 999px */
-@media (min-width: 777px) and (max-width: 999px) {
-  .work-card-inner {
-    flex-direction: row;
-    align-items: stretch;
-    height: 100%;
-  }
-
-  .work-image {
-    flex: 0 0 40%;
-    position: relative;
-    aspect-ratio: 4 / 3; /* Enforce 4:3 aspect ratio */
-    height: auto; /* Remove fixed height */
-    min-height: 0; /* Remove min-height */
-    width: auto; /* Let width be determined by flex and aspect ratio */
-  }
-
-  .work-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .work-content {
-    flex: 0 0 60%;
-    padding: var(--space-md);
-  }
-}
-
-/* Add a more specific media query for the problematic range */
-@media (min-width: 777px) and (max-width: 930px) {
-  .work-card-inner {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-  }
-
-  .work-image {
-    flex: 0 0 40%;
-    position: relative;
-    aspect-ratio: 4 / 3 !important; /* Force 4:3 aspect ratio with !important */
-    height: auto !important; /* Override any height settings */
-    min-height: 0 !important; /* Override any min-height settings */
-    width: auto; /* Let width be determined by flex */
-  }
-
-  .work-content {
-    flex: 0 0 60%;
-  }
-}
-
-@media (max-width: 776px) {
-  :root {
-    --fs-xxl: 2rem;
-    --fs-xl: 1.5rem;
-    --fs-lg: 1.25rem;
-    --fs-md: 1.125rem;
-    --section-padding-top: 32px;
-    --section-padding-bottom: 32px;
-  }
-
-  /* Fix for mobile padding */
-  .container {
-    width: 95%;
-    padding: 0 var(--space-sm);
-    box-sizing: border-box;
-  }
-
-  .hero {
-    margin: 64px auto;
-  }
-
-  .hero-btns {
-    flex-direction: column;
-    gap: var(--space-md);
-  }
-
-  .hero-content {
-    width: 90%;
-    font-size: var(--fs-md);
-  }
-
-  /* Mobile menu styles */
-  .menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: rgba(5, 17, 32, 0.95);
-    backdrop-filter: blur(12px);
-    border-radius: var(--radius-md);
-    width: 220px;
-    padding: var(--space-md);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-md);
-    z-index: 100;
-  }
-
-  .menu.active {
-    display: flex;
-  }
-
-  .menu-item {
-    width: 100%;
-  }
-
-  .menu .primary-btn {
-    display: inline-flex;
-    width: 100%;
-    justify-content: center;
-    margin-top: var(--space-xs);
-  }
-
-  .hide-mobile {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  /* Work card responsive adjustments for mobile */
-  .work-card-inner {
-    flex-direction: column;
-  }
-
-  /* Updated work-image for mobile */
-  .work-image {
-    flex: 0 0 auto;
-    position: relative;
-    aspect-ratio: 4 / 3; /* Maintain 4:3 aspect ratio */
-    height: auto; /* Remove fixed height */
-    width: 100%;
-  }
-
-  .work-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Updated work-content for mobile - padding on all sides */
-  .work-content {
-    flex: 0 0 auto;
-    padding: var(--space-md);
-  }
-
-  /* Shot cards responsive for mobile */
-  #shots.active {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-
-  /* About section responsive adjustments */
-  .about-wrapper {
-    padding: var(--space-lg);
-  }
-
-  .section-subtitle {
-    font-size: var(--fs-md);
-    text-align: center;
-  }
-
-  /* Ensure about paragraphs don't overflow */
-  .about-paragraph {
-    padding-right: 0;
-  }
-
-  /* Experience and Education mobile layout */
-  .experience-item,
-  .education-item {
-    flex-wrap: wrap;
-  }
-
-  .job-title,
-  .degree-info {
-    position: static;
-    flex: 0 0 100%;
-    margin-top: var(--space-xs);
-    margin-left: 76px;
-    text-align: left;
-    max-width: 100%;
-  }
-
-  .degree-info p,
-  .specialization {
-    text-align: left;
-  }
-
-  /* Fix for marquee container on mobile */
-  .marquee-container {
-    padding: var(--space-md) 40px;
-  }
-
-  /* Fix for work cards on mobile */
-  .work-card {
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-  }
-
-  /* Fix navbar on mobile to have proper margins */
-  nav {
-    width: 95%;
-    margin: var(--space-md) auto;
-    border-radius: var(--radius-md);
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-
-  /* More specific and forceful navbar styling for mobile */
-  body nav.container {
-    width: 90% !important;
-    max-width: 90% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-top: var(--space-md) !important;
-    margin-bottom: var(--space-md) !important;
-    left: 0 !important;
-    right: 0 !important;
-    position: sticky !important;
-    box-sizing: border-box !important;
-    border-radius: var(--radius-md) !important;
-  }
-
-  /* Ensure the container class doesn't override our nav styles */
-  nav.container {
-    padding: var(--space-xs) var(--space-md) !important;
-  }
-}
-
+/* Footer Responsive Styles */
 @media (max-width: 480px) {
-  :root {
-    --fs-xxl: 1.75rem;
-    --fs-xl: 1.375rem;
-    --fs-lg: 1.125rem;
-    --fs-md: 1rem;
-    --fs-base: 0.9375rem;
-    --section-padding-top: 24px;
-    --section-padding-bottom: 24px;
-  }
-
-  .hero {
-    margin: 48px auto;
-  }
-
-  .hero-btns {
-    flex-direction: column;
-  }
-
-  .tabs {
-    width: 90%;
-  }
-
-  .tab-btn {
-    padding: var(--space-xs) var(--space-md);
-    font-size: var(--fs-sm);
-  }
-
-  /* Keep consistent padding for work-content */
-  .work-content {
-    padding: var(--space-md);
-  }
-
-  .work-category {
-    font-size: calc(var(--fs-xs) - 1px);
-  }
-
-  .work-title {
-    font-size: var(--fs-base);
-  }
-
-  .work-meta {
-    font-size: calc(var(--fs-xs) + 1px);
-  }
-
-  /* About section responsive adjustments */
-  .about-wrapper {
-    padding: var(--space-md);
-    border-radius: var(--radius-md); /* Smaller border radius on mobile */
-  }
-
-  .about-content {
-    padding: 0;
-    gap: var(--space-md);
-  }
-
-  .profile-container {
-    flex: 0 0 100%;
-    margin-bottom: var(--space-md);
-  }
-
-  .profile-frame {
-    width: 150px;
-    margin: 0 auto;
-  }
-
-  .company-logo,
-  .institution-logo {
-    flex: 0 0 50px;
-    height: 50px;
-    min-width: 50px;
-  }
-
-  .job-title,
-  .degree-info {
-    margin-left: 66px; /* Logo width (50px) + right margin (16px) */
-    font-size: var(--fs-sm);
-  }
-
-  .social-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-sm);
-  }
-
-  /* Add this media query to adjust padding for smaller screens */
-  .about-text {
-    padding-right: 0; /* Remove right padding on very small screens */
-    padding: 0 var(--space-xs); /* Add consistent padding on all sides */
-  }
-
-  .about-content {
-    padding: 0 var(--space-xs);
-  }
-
-  /* Fix for marquee container on small mobile */
-  .marquee-container {
-    padding: var(--space-md) 20px;
-  }
-
-  /* Ensure navbar has proper margins on very small screens */
-  nav {
-    width: 92%;
-    margin: var(--space-sm) auto;
-  }
-
-  body nav.container {
-    width: 92% !important;
-    max-width: 92% !important;
-  }
-}
-
-@media (max-width: 360px) {
-  .about-wrapper {
-    padding: var(--space-sm);
-  }
-
-  .profile-frame {
-    width: 120px;
-  }
-
-  .company-logo,
-  .institution-logo {
-    flex: 0 0 40px;
-    height: 40px;
-    min-width: 40px;
-    margin-right: var(--space-md); /* Keep the same spacing as larger screens */
-  }
-
-  .experience-details,
-  .education-details {
-    padding-right: 0;
-  }
-
-  .job-title,
-  .degree-info {
-    margin-left: 56px; /* Logo width (40px) + right margin (16px) */
-  }
-
-  /* Ensure description doesn't overflow on very small screens */
-  .description {
-    width: 100%;
-  }
-
-  /* Add these new rules for very small screens */
-  .about-text {
-    min-width: 100%; /* Override the min-width for very small screens */
-    padding-right: 0; /* Remove right padding on very small screens */
-  }
-
-  .about-paragraph {
-    font-size: calc(var(--fs-base) - 1px); /* Slightly smaller font size */
-    word-break: break-word; /* Force word breaks if needed */
-  }
-
-  .about-content {
-    width: 100%;
-    padding: 0;
-  }
-
-  /* Fix for marquee container on very small mobile */
-  .marquee-container {
-    padding: var(--space-md) 10px;
-  }
-}
-
-@media (max-width: 576px) {
-  .degree-info p {
-    line-height: 1.4; /* Improve line height for readability */
+  .footer {
+    padding: var(--space-md) 0;
   }
 }
 
