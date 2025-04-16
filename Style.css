@@ -79,8 +79,8 @@
 
 html {
   scroll-behavior: smooth;
-  overscroll-behavior: none;
-  overflow-x: hidden; /* Prevent horizontal scrolling at the root level */
+  overscroll-behavior: auto; /* Allow pull-to-refresh */
+  overflow-x: hidden; /* Only prevent horizontal scrolling */
 }
 
 body {
@@ -89,8 +89,10 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   background: radial-gradient(50.21% 80.33% at 50% 50%, #021f46 0%, var(--color-bg-dark) 100%);
-  overflow-x: hidden; /* Prevent horizontal scrolling at the body level */
+  overflow-x: hidden; /* Only prevent horizontal scrolling */
+  overflow-y: visible; /* Explicitly allow vertical scrolling */
   width: 100%;
+  overscroll-behavior-y: auto; /* Allow pull-to-refresh */
 }
 
 img {
@@ -111,17 +113,19 @@ button {
 }
 
 /* ===== LAYOUT ===== */
+/* Fix the container padding to ensure consistent spacing */
 .container {
   max-width: 1080px;
   width: 90%;
   margin: 0 auto;
-  padding: 0 var(--space-md); /* Add consistent padding */
+  padding: var(--space-md); /* Add padding on all sides */
   box-sizing: border-box;
 }
 
 main {
   padding-top: var(--space-xl);
-  overflow-x: hidden; /* Prevent horizontal scrolling in the main content */
+  overflow-x: hidden; /* Only prevent horizontal scrolling */
+  overflow-y: visible; /* Allow vertical scrolling */
   width: 100%;
 }
 
@@ -130,7 +134,8 @@ section {
   padding-top: var(--section-padding-top);
   padding-bottom: var(--section-padding-bottom);
   width: 100%;
-  overflow-x: hidden; /* Prevent horizontal scrolling in sections */
+  overflow-x: hidden; /* Only prevent horizontal scrolling */
+  overflow-y: visible; /* Allow vertical scrolling */
 }
 
 /* ===== BACKGROUND ===== */
@@ -247,11 +252,12 @@ p {
 }
 
 /* ===== NAVIGATION ===== */
+/* Update the nav styles to ensure proper padding on all screen sizes */
 nav {
   top: var(--space-md);
   position: sticky;
   display: flex;
-  padding: var(--space-xs);
+  padding: var(--space-xs) var(--space-md); /* Ensure horizontal padding */
   align-items: center;
   gap: var(--space-md);
   border-radius: var(--radius-lg);
@@ -260,9 +266,10 @@ nav {
   backdrop-filter: blur(12px);
   justify-content: space-between;
   z-index: 100;
-  width: 100%;
+  width: 90%; /* Change from 100% to 90% to ensure margins on sides */
   max-width: 100%;
   box-sizing: border-box;
+  margin: 0 auto; /* Center the navbar */
 }
 
 .logo {
@@ -1310,6 +1317,35 @@ nav {
     margin-right: 0;
     width: 100%;
   }
+
+  /* Fix navbar on mobile to have proper margins */
+  nav {
+    width: 95%;
+    margin: var(--space-md) auto;
+    border-radius: var(--radius-md);
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* More specific and forceful navbar styling for mobile */
+  body nav.container {
+    width: 90% !important;
+    max-width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: var(--space-md) !important;
+    margin-bottom: var(--space-md) !important;
+    left: 0 !important;
+    right: 0 !important;
+    position: sticky !important;
+    box-sizing: border-box !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  /* Ensure the container class doesn't override our nav styles */
+  nav.container {
+    padding: var(--space-xs) var(--space-md) !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1411,6 +1447,17 @@ nav {
   .marquee-container {
     padding: var(--space-md) 20px;
   }
+
+  /* Ensure navbar has proper margins on very small screens */
+  nav {
+    width: 92%;
+    margin: var(--space-sm) auto;
+  }
+
+  body nav.container {
+    width: 92% !important;
+    max-width: 92% !important;
+  }
 }
 
 @media (max-width: 360px) {
@@ -1498,6 +1545,41 @@ nav {
 /* Additional fixes for very small screens */
 @media (max-width: 480px) {
   .container {
-    padding: 0 var(--space-sm); /* Slightly smaller padding for very small screens */
+    padding: var(--space-sm); /* Slightly smaller padding for very small screens */
+  }
+}
+
+/* Update the responsive styles for mobile */
+@media (max-width: 776px) {
+  /* Keep the container padding consistent */
+  .container {
+    width: 100%;
+    padding: var(--space-md); /* Ensure padding on all sides */
+  }
+
+  /* Ensure nav has proper spacing on mobile */
+  nav {
+    width: 90%;
+    margin: var(--space-md) auto;
+    padding: var(--space-xs) var(--space-md);
+  }
+
+  /* Fix section padding */
+  section {
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+}
+
+/* Additional fixes for very small screens */
+@media (max-width: 480px) {
+  .container {
+    padding: var(--space-sm); /* Slightly smaller padding but still present */
+  }
+
+  nav {
+    padding: var(--space-xs) var(--space-sm);
   }
 }
