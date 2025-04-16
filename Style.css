@@ -80,6 +80,7 @@
 html {
   scroll-behavior: smooth;
   overscroll-behavior: none;
+  overflow-x: hidden; /* Prevent horizontal scrolling at the root level */
 }
 
 body {
@@ -88,6 +89,8 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   background: radial-gradient(50.21% 80.33% at 50% 50%, #021f46 0%, var(--color-bg-dark) 100%);
+  overflow-x: hidden; /* Prevent horizontal scrolling at the body level */
+  width: 100%;
 }
 
 img {
@@ -112,16 +115,22 @@ button {
   max-width: 1080px;
   width: 90%;
   margin: 0 auto;
+  padding: 0 var(--space-md); /* Add consistent padding */
+  box-sizing: border-box;
 }
 
 main {
   padding-top: var(--space-xl);
+  overflow-x: hidden; /* Prevent horizontal scrolling in the main content */
+  width: 100%;
 }
 
 section {
   margin: 0 auto; /* Reset margin to fix the issue */
   padding-top: var(--section-padding-top);
   padding-bottom: var(--section-padding-bottom);
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling in sections */
 }
 
 /* ===== BACKGROUND ===== */
@@ -251,6 +260,9 @@ nav {
   backdrop-filter: blur(12px);
   justify-content: space-between;
   z-index: 100;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -337,6 +349,7 @@ nav {
   align-items: center;
   gap: var(--space-lg);
   margin: 96px auto; /* Changed from padding to margin as in your original version */
+  width: 100%;
 }
 
 .my-image {
@@ -391,6 +404,7 @@ nav {
   );
   overflow: hidden;
   margin-bottom: var(--space-xl); /* Added margin at the bottom */
+  box-sizing: border-box;
 }
 
 /* Marquee borders */
@@ -488,6 +502,7 @@ nav {
   flex-direction: column;
   align-items: center;
   gap: var(--space-md);
+  width: 100%;
 }
 
 /* Tabs */
@@ -502,6 +517,7 @@ nav {
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border-light);
   background: var(--color-bg-blue-dark);
+  box-sizing: border-box;
 }
 
 .tab-btn {
@@ -549,6 +565,7 @@ nav {
   border: 1px solid var(--color-border-light);
   cursor: pointer;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-sizing: border-box;
 }
 
 /* Work card link styles */
@@ -569,6 +586,8 @@ nav {
   display: flex;
   flex-direction: row;
   height: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Updated work-image class */
@@ -601,6 +620,7 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .work-category {
@@ -648,6 +668,8 @@ nav {
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-xl);
   justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Update the shot card styles to ensure 3:2 aspect ratio for images */
@@ -674,6 +696,7 @@ nav {
   align-items: center;
   gap: var(--space-md);
   position: relative;
+  width: 100%;
 }
 
 /* About wrapper to contain both about content and experience-education */
@@ -685,6 +708,7 @@ nav {
   border: 1px solid var(--color-border-light);
   padding: var(--space-xl) var(--space-lg); /* Adjusted padding */
   margin-top: var(--space-md);
+  box-sizing: border-box;
 }
 
 /* Make the about content more responsive */
@@ -696,6 +720,7 @@ nav {
   align-items: flex-start;
   width: 100%;
   margin-bottom: var(--space-xl);
+  box-sizing: border-box;
 }
 
 /* Update for About section without image */
@@ -766,11 +791,13 @@ nav {
   display: flex;
   flex-direction: column;
   gap: var(--space-md); /* Changed from var(--space-lg) to var(--space-md) */
+  box-sizing: border-box;
 }
 
 /* Experience and Education Styles */
 .experience-section {
   width: 100%;
+  box-sizing: border-box;
 }
 
 .experience-item,
@@ -780,6 +807,8 @@ nav {
   padding: var(--space-sm) 0; /* Changed from var(--space-md) to var(--space-sm) */
   border-bottom: 1px solid var(--color-border-light);
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .experience-item:last-child,
@@ -865,6 +894,7 @@ nav {
   flex-direction: column;
   align-items: center;
   gap: var(--space-md);
+  width: 100%;
 }
 
 .blog-container {
@@ -873,6 +903,7 @@ nav {
   gap: var(--space-xl);
   justify-content: center;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .blog-card {
@@ -884,6 +915,7 @@ nav {
   background: var(--color-bg-blue);
   border: 1px solid var(--color-border);
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  box-sizing: border-box;
 }
 
 .blog-card:hover {
@@ -960,6 +992,7 @@ nav {
   flex-direction: column;
   align-items: center;
   gap: var(--space-md);
+  width: 100%;
 }
 
 .contact h2 {
@@ -977,6 +1010,7 @@ nav {
   gap: var(--space-md);
   margin-top: var(--space-sm);
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .social-link {
@@ -1003,6 +1037,7 @@ nav {
 .footer {
   padding: var(--space-lg) 0;
   text-align: center;
+  width: 100%;
 }
 
 .copyright {
@@ -1131,6 +1166,13 @@ nav {
     --section-padding-bottom: 32px;
   }
 
+  /* Fix for mobile padding */
+  .container {
+    width: 95%;
+    padding: 0 var(--space-sm);
+    box-sizing: border-box;
+  }
+
   .hero {
     margin: 64px auto;
   }
@@ -1256,6 +1298,18 @@ nav {
   .specialization {
     text-align: left;
   }
+
+  /* Fix for marquee container on mobile */
+  .marquee-container {
+    padding: var(--space-md) 40px;
+  }
+
+  /* Fix for work cards on mobile */
+  .work-card {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1352,6 +1406,11 @@ nav {
   .about-content {
     padding: 0 var(--space-xs);
   }
+
+  /* Fix for marquee container on small mobile */
+  .marquee-container {
+    padding: var(--space-md) 20px;
+  }
 }
 
 @media (max-width: 360px) {
@@ -1401,6 +1460,11 @@ nav {
     width: 100%;
     padding: 0;
   }
+
+  /* Fix for marquee container on very small mobile */
+  .marquee-container {
+    padding: var(--space-md) 10px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -1409,8 +1473,31 @@ nav {
   }
 }
 
+/* Update the container class to maintain proper padding on mobile */
+/* Fix for mobile views */
 @media (max-width: 776px) {
-  *{
-    overflow-x: hidden;
+  .container {
+    width: 100%; /* Use full width */
+    padding: 0 var(--space-md); /* Keep consistent padding */
+  }
+
+  /* Work card responsive adjustments for mobile */
+  .work-card {
+    margin: 0 var(--space-xs); /* Add margin to cards */
+    width: calc(100% - var(--space-xs) * 2); /* Adjust width to account for margin */
+  }
+
+  /* About section responsive adjustments */
+  .about-wrapper {
+    margin: 0 var(--space-xs);
+    width: calc(100% - var(--space-xs) * 2);
+    padding: var(--space-lg);
+  }
+}
+
+/* Additional fixes for very small screens */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-sm); /* Slightly smaller padding for very small screens */
   }
 }
