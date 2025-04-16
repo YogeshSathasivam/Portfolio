@@ -571,25 +571,30 @@ nav {
   height: 100%;
 }
 
-/* Updated work-image class - removed padding */
+/* Updated work-image class */
 .work-image {
   flex: 0 0 45%;
-  height: 100%;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  overflow: hidden; /* Add this to prevent overflow */
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 4 / 3; /* Enforce 4:3 aspect ratio */
 }
 
-/* Updated work-image img - removed border-radius */
+/* Updated work-image img */
 .work-image img {
   width: 100%;
   height: 100%;
-  aspect-ratio: 4 / 3;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-/* Updated work-content class - added padding to all sides */
+/* Updated work-content class */
 .work-content {
   flex: 0 0 55%;
   padding: var(--space-xl);
@@ -1038,6 +1043,7 @@ nav {
   /* Updated work-image for tablet */
   .work-image {
     flex: 0 0 40%;
+    aspect-ratio: 4 / 3; /* Maintain 4:3 aspect ratio */
   }
 
   /* Updated work-content for tablet - padding on all sides */
@@ -1058,6 +1064,60 @@ nav {
   /* Keep the 2-column layout for tablets */
   #shots.active {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Fix for screens between 777px and 999px */
+@media (min-width: 777px) and (max-width: 999px) {
+  .work-card-inner {
+    flex-direction: row;
+    align-items: stretch;
+    height: 100%;
+  }
+
+  .work-image {
+    flex: 0 0 40%;
+    position: relative;
+    aspect-ratio: 4 / 3; /* Enforce 4:3 aspect ratio */
+    height: auto; /* Remove fixed height */
+    min-height: 0; /* Remove min-height */
+    width: auto; /* Let width be determined by flex and aspect ratio */
+  }
+
+  .work-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .work-content {
+    flex: 0 0 60%;
+    padding: var(--space-md);
+  }
+}
+
+/* Add a more specific media query for the problematic range */
+@media (min-width: 777px) and (max-width: 930px) {
+  .work-card-inner {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+  }
+
+  .work-image {
+    flex: 0 0 40%;
+    position: relative;
+    aspect-ratio: 4 / 3 !important; /* Force 4:3 aspect ratio with !important */
+    height: auto !important; /* Override any height settings */
+    min-height: 0 !important; /* Override any min-height settings */
+    width: auto; /* Let width be determined by flex */
+  }
+
+  .work-content {
+    flex: 0 0 60%;
   }
 }
 
@@ -1134,6 +1194,19 @@ nav {
   /* Updated work-image for mobile */
   .work-image {
     flex: 0 0 auto;
+    position: relative;
+    aspect-ratio: 4 / 3; /* Maintain 4:3 aspect ratio */
+    height: auto; /* Remove fixed height */
+    width: 100%;
+  }
+
+  .work-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   /* Updated work-content for mobile - padding on all sides */
@@ -1213,9 +1286,9 @@ nav {
     font-size: var(--fs-sm);
   }
 
-  /* Updated work-content for smaller screens - padding on all sides */
+  /* Keep consistent padding for work-content */
   .work-content {
-    padding: var(--space-xs);
+    padding: var(--space-md);
   }
 
   .work-category {
@@ -1333,29 +1406,5 @@ nav {
 @media (max-width: 576px) {
   .degree-info p {
     line-height: 1.4; /* Improve line height for readability */
-  }
-}
-
-@media (min-width: 777px) and (max-width: 999px) {
-  .work-card-inner {
-    flex-direction: row;
-    align-items: stretch;
-  }
-
-  .work-image {
-    flex: 0 0 40%;
-    min-height: 250px; /* Set a minimum height */
-    max-height: 300px; /* Set a maximum height */
-  }
-
-  .work-image img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  .work-content {
-    flex: 0 0 60%;
-    padding: var(--space-md);
   }
 }
