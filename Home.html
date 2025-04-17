@@ -1,584 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Yogesh S - UI/UX Designer Portfolio showcasing creative design work">
-<link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
-<link rel="shortcut icon" href="assets/favicon/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="Yogesh's Portfolio" />
-<link rel="manifest" href="/site.webmanifest" />
-<title>Yogesh S - UI/UX Designer Portfolio</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yogesh S - UI/UX Designer Portfolio showcasing creative design work">
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+  <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="Yogesh's Portfolio">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>Yogesh S - UI/UX Designer Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
-<!-- Background elements -->
-<div class="bg-pattern" aria-hidden="true"></div>
-<div class="bg" aria-hidden="true"></div>
+  <div class="bg-pattern" aria-hidden="true"></div>
+  <div class="bg" aria-hidden="true"></div>
 
-<!-- Navigation -->
-<nav class="container">
-<a href="#" class="logo">YOGESH S</a>
-<div class="menu">
-<a href="#works" class="menu-item">My Works</a>
-<a href="#about" class="menu-item">About Me</a>
-<a href="#blogs" class="menu-item">Blogs</a>
-<a href="#contact" class="menu-item">Contact</a>
-<a href="#contact" class="primary-btn">Let's Talk</a>
-</div>  
-<a href="#contact" class="primary-btn hide-mobile">Let's Talk</a>
-<button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
-<div></div>
-<div></div>
-<div></div>
-</button>  
-</nav>
+  <nav class="container">
+    <a href="#" class="logo">YOGESH S</a>
+    <div class="menu">
+      <a href="#works" class="menu-item">My Works</a>
+      <a href="#about" class="menu-item">About Me</a>
+      <a href="#blogs" class="menu-item">Blogs</a>
+      <a href="mailto:hello@yogeshdesign.com" class="primary-btn">Let's Connect</a>
+    </div>  
+    <a href="mailto:hello@yogeshdesign.com" class="primary-btn hide-mobile">Let's Connect</a>
+    <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </button>  
+  </nav>
 
-<main>
-<!-- Hero Section -->
-<section class="hero container">
-<div class="my-image" aria-label="Profile picture of Yogesh"></div>
-<div class="hero-container">
-<h1>I'm <span class="highlight">YOGESH</span>, <br>the <span class="highlight">DESIGNER</span> you're looking for!</h1>
-<p class="hero-content">Crafting sleek, intuitive and engaging designs for modern platforms.</p>
-</div>
-<div class="hero-btns">
-<a href="#works" class="secondary-btn">Explore my works</a>
-<a href="#contact" class="primary-btn">Let's Talk</a>
-</div>
-</section>
+  <main>
+    <section class="hero container">
+      <div class="my-image" aria-label="Profile picture of Yogesh"></div>
+      <div class="hero-container">
+        <h1>I'm <span class="highlight">YOGESH</span>, <br>the <span class="highlight">DESIGNER</span> you're looking for!</h1>
+        <p class="hero-content">Crafting sleek, intuitive and engaging designs for modern platforms.</p>
+      </div>
+      <div class="hero-btns">
+        <a href="#works" class="secondary-btn">Explore my works</a>
+        <a href="mailto:hello@yogeshdesign.com" class="primary-btn">Let's Connect</a>
+      </div>
+    </section>
 
-<!-- Skills Marquee Section -->
-<section class="marquee-container" aria-label="Skills and tools">
-<div class="fading-right" aria-hidden="true"></div>
-<div class="fading-left" aria-hidden="true"></div>
-<!-- Marquee items -->
-<div class="marquee-track">
-<!-- Original Set -->
-<div class="marquee-item">
-    <img src="./assets/figma-logo.svg" alt="Figma logo">
-    <p>Figma</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/xd-logo.svg" alt="Adobe XD logo">
-    <p>Adobe XD</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/ai-logo.svg" alt="Adobe Illustrator logo">
-    <p>Adobe Illustrator</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/photoshop-logo.svg" alt="Adobe Photoshop logo">
-    <p>Adobe Photoshop</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/midjourney-logo.svg" alt="Midjourney logo">
-    <p>Midjourney</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/chatgpt-logo.svg" alt="ChatGPT logo">
-    <p>Chat GPT</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/webflow-logo.svg" alt="Webflow logo">
-    <p>Webflow</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/framer-logo.svg" alt="Framer logo">
-    <p>Framer</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/html-logo.svg" alt="HTML logo">
-    <p>HTML</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/css-logo.svg" alt="CSS logo">
-    <p>CSS</p>
-</div>
-<!-- Duplicated for infinite animation -->
-<div class="marquee-item">
-    <img src="./assets/figma-logo.svg" alt="Figma logo">
-    <p>Figma</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/xd-logo.svg" alt="Adobe XD logo">
-    <p>Adobe XD</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/ai-logo.svg" alt="Adobe Illustrator logo">
-    <p>Adobe Illustrator</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/photoshop-logo.svg" alt="Adobe Photoshop logo">
-    <p>Adobe Photoshop</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/midjourney-logo.svg" alt="Midjourney logo">
-    <p>Midjourney</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/chatgpt-logo.svg" alt="ChatGPT logo">
-    <p>Chat GPT</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/webflow-logo.svg" alt="Webflow logo">
-    <p>Webflow</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/framer-logo.svg" alt="Framer logo">
-    <p>Framer</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/html-logo.svg" alt="HTML logo">
-    <p>HTML</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/css-logo.svg" alt="CSS logo">
-    <p>CSS</p>
-</div>
-<!-- Additional duplicates for smoother animation -->
-<div class="marquee-item">
-    <img src="./assets/figma-logo.svg" alt="Figma logo">
-    <p>Figma</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/xd-logo.svg" alt="Adobe XD logo">
-    <p>Adobe XD</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/ai-logo.svg" alt="Adobe Illustrator logo">
-    <p>Adobe Illustrator</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/photoshop-logo.svg" alt="Adobe Photoshop logo">
-    <p>Adobe Photoshop</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/midjourney-logo.svg" alt="Midjourney logo">
-    <p>Midjourney</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/chatgpt-logo.svg" alt="ChatGPT logo">
-    <p>Chat GPT</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/webflow-logo.svg" alt="Webflow logo">
-    <p>Webflow</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/framer-logo.svg" alt="Framer logo">
-    <p>Framer</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/html-logo.svg" alt="HTML logo">
-    <p>HTML</p>
-</div>
-<div class="marquee-item">
-    <img src="./assets/css-logo.svg" alt="CSS logo">
-    <p>CSS</p>
-</div>
-</div>
-</section>
+    <section class="marquee-container" aria-label="Skills and tools">
+      <div class="fading-right" aria-hidden="true"></div>
+      <div class="fading-left" aria-hidden="true"></div>
+      <div class="marquee-track">
+        <div class="marquee-item">
+          <img src="./assets/figma-logo.svg" alt="Figma logo">
+          <p>Figma</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/xd-logo.svg" alt="Adobe XD logo">
+          <p>Adobe XD</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/ai-logo.svg" alt="Adobe Illustrator logo">
+          <p>Adobe Illustrator</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/photoshop-logo.svg" alt="Adobe Photoshop logo">
+          <p>Adobe Photoshop</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/midjourney-logo.svg" alt="Midjourney logo">
+          <p>Midjourney</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/chatgpt-logo.svg" alt="ChatGPT logo">
+          <p>Chat GPT</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/webflow-logo.svg" alt="Webflow logo">
+          <p>Webflow</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/framer-logo.svg" alt="Framer logo">
+          <p>Framer</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/html-logo.svg" alt="HTML logo">
+          <p>HTML</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/css-logo.svg" alt="CSS logo">
+          <p>CSS</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/figma-logo.svg" alt="Figma logo">
+          <p>Figma</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/xd-logo.svg" alt="Adobe XD logo">
+          <p>Adobe XD</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/ai-logo.svg" alt="Adobe Illustrator logo">
+          <p>Adobe Illustrator</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/photoshop-logo.svg" alt="Adobe Photoshop logo">
+          <p>Adobe Photoshop</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/midjourney-logo.svg" alt="Midjourney logo">
+          <p>Midjourney</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/chatgpt-logo.svg" alt="ChatGPT logo">
+          <p>Chat GPT</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/webflow-logo.svg" alt="Webflow logo">
+          <p>Webflow</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/framer-logo.svg" alt="Framer logo">
+          <p>Framer</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/html-logo.svg" alt="HTML logo">
+          <p>HTML</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/css-logo.svg" alt="CSS logo">
+          <p>CSS</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/figma-logo.svg" alt="Figma logo">
+          <p>Figma</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/xd-logo.svg" alt="Adobe XD logo">
+          <p>Adobe XD</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/ai-logo.svg" alt="Adobe Illustrator logo">
+          <p>Adobe Illustrator</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/photoshop-logo.svg" alt="Adobe Photoshop logo">
+          <p>Adobe Photoshop</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/midjourney-logo.svg" alt="Midjourney logo">
+          <p>Midjourney</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/chatgpt-logo.svg" alt="ChatGPT logo">
+          <p>Chat GPT</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/webflow-logo.svg" alt="Webflow logo">
+          <p>Webflow</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/framer-logo.svg" alt="Framer logo">
+          <p>Framer</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/html-logo.svg" alt="HTML logo">
+          <p>HTML</p>
+        </div>
+        <div class="marquee-item">
+          <img src="./assets/css-logo.svg" alt="CSS logo">
+          <p>CSS</p>
+        </div>
+      </div>
+    </section>
 
-<!-- My Works Section -->
-<section id="works" class="my-works container">
-<h2>My <span class="highlight">Works</span></h2>
-<p class="description">
-Here are some of my selected works, blending creativity and functionality for engaging user experiences.
-</p>
+    <section id="works" class="my-works container">
+      <h2>My <span class="highlight">Works</span></h2>
+      <p class="description">
+        Here are some of my selected works, blending creativity and functionality for engaging user experiences.
+      </p>
 
-<!-- Tab Switch -->
-<div class="tabs" role="tablist">
-<button class="tab-btn active" id="projects-tab" data-tab="projects" role="tab" aria-selected="true" aria-controls="projects">Projects</button>
-<button class="tab-btn" id="shots-tab" data-tab="shots" role="tab" aria-selected="false" aria-controls="shots">Shots</button>
-</div>
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" id="projects-tab" data-tab="projects" role="tab" aria-selected="true" aria-controls="projects">Projects</button>
+        <button class="tab-btn" id="shots-tab" data-tab="shots" role="tab" aria-selected="false" aria-controls="shots">Shots</button>
+      </div>
 
-<!-- Projects Section -->
-<div class="works-container active" id="projects" role="tabpanel" aria-labelledby="projects-tab">
-<!-- Project Card 1 -->
-<article class="work-card">
-    <a href="https://www.behance.net/gallery/190574193/Device-Management-Software-Admin-Flow-UI-Design" target="_blank" class="work-card-link" aria-label="View DeviceHub project">
-        <div class="work-card-inner">
-            <div class="work-image">
+      <div class="works-container active" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+        <article class="work-card">
+          <a href="https://www.behance.net/gallery/190574193/Device-Management-Software-Admin-Flow-UI-Design" target="_blank" class="work-card-link" aria-label="View DeviceHub project">
+            <div class="work-card-inner">
+              <div class="work-image">
                 <img src="./assets/thumbnails/device-hub.webp" alt="DeviceHub project thumbnail" class="thumbnail">
-            </div>
-            <div class="work-content">
+              </div>
+              <div class="work-content">
                 <div class="work-category">DEVICE MANAGEMENT</div>
                 <h3 class="work-title">DeviceHub: Simplified Device Management for Enterprise Teams</h3>
                 <div class="work-meta">
-                    <span>Web App</span>
-                    <span class="meta-dot">•</span>
-                    <span>2024</span>
+                  <span>Web App</span>
+                  <span class="meta-dot">•</span>
+                  <span>2024</span>
                 </div>
                 <p class="work-description">
-                    Designed an intuitive device management platform that helps IT teams track, manage, and optimize their hardware assets across multiple locations.
+                  Designed an intuitive device management platform that helps IT teams track, manage, and optimize their hardware assets across multiple locations.
                 </p>
+              </div>
             </div>
-        </div>
-    </a>
-</article>
+          </a>
+        </article>
 
-<!-- Project Card 2 -->
-<article class="work-card">
-    <a href="#" target="_blank" class="work-card-link" aria-label="View HealthTrack project">
-        <div class="work-card-inner">
-            <div class="work-image">
+        <article class="work-card">
+          <a href="#" target="_blank" class="work-card-link" aria-label="View HealthTrack project">
+            <div class="work-card-inner">
+              <div class="work-image">
                 <img src="./assets/thumbnails/device-hub.webp" alt="HealthTrack project thumbnail" class="thumbnail">
-            </div>
-            <div class="work-content">
+              </div>
+              <div class="work-content">
                 <div class="work-category">HEALTHCARE</div>
                 <h3 class="work-title">HealthTrack: Personal Health Monitoring Dashboard</h3>
                 <div class="work-meta">
-                    <span>Mobile App</span>
-                    <span class="meta-dot">•</span>
-                    <span>2023</span>
+                  <span>Mobile App</span>
+                  <span class="meta-dot">•</span>
+                  <span>2023</span>
                 </div>
                 <p class="work-description">
-                    Created a comprehensive health tracking application that allows users to monitor vital signs, medication schedules, and fitness goals in one unified interface.
+                  Created a comprehensive health tracking application that allows users to monitor vital signs, medication schedules, and fitness goals in one unified interface.
                 </p>
+              </div>
             </div>
-        </div>
-    </a>
-</article>
+          </a>
+        </article>
 
-<!-- Project Card 3 -->
-<article class="work-card">
-    <a href="#" target="_blank" class="work-card-link" aria-label="View EcoShop project">
-        <div class="work-card-inner">
-            <div class="work-image">
+        <article class="work-card">
+          <a href="#" target="_blank" class="work-card-link" aria-label="View EcoShop project">
+            <div class="work-card-inner">
+              <div class="work-image">
                 <img src="./assets/thumbnails/device-hub.webp" alt="EcoShop project thumbnail" class="thumbnail">
-            </div>
-            <div class="work-content">
+              </div>
+              <div class="work-content">
                 <div class="work-category">E-COMMERCE</div>
                 <h3 class="work-title">EcoShop: Sustainable Shopping Experience</h3>
                 <div class="work-meta">
-                    <span>Web & Mobile</span>
-                    <span class="meta-dot">•</span>
-                    <span>2023</span>
+                  <span>Web & Mobile</span>
+                  <span class="meta-dot">•</span>
+                  <span>2023</span>
                 </div>
                 <p class="work-description">
-                    Designed an eco-friendly e-commerce platform that highlights sustainable products and provides transparency about environmental impact throughout the shopping journey.
+                  Designed an eco-friendly e-commerce platform that highlights sustainable products and provides transparency about environmental impact throughout the shopping journey.
                 </p>
+              </div>
             </div>
-        </div>
-    </a>
-</article>
-</div>
-
-<!-- Shots Section -->
-<div class="works-container" id="shots" role="tabpanel" aria-labelledby="shots-tab">
-    <article class="work-card">
-        <img src="./assets/20 March 2025 - Cyber Threats Monitoring Dashboard.png" alt="Design shot thumbnail" class="thumbnail">
-    </article>
-    <article class="work-card">
-        <img src="./assets/20 March 2025 - Cyber Threats Monitoring Dashboard.png" alt="Design shot thumbnail" class="thumbnail">
-    </article>
-    <article class="work-card">
-        <img src="./assets/20 March 2025 - Cyber Threats Monitoring Dashboard.png" alt="Design shot thumbnail" class="thumbnail">
-    </article>
-    <article class="work-card">
-        <img src="./assets/20 March 2025 - Cyber Threats Monitoring Dashboard.png" alt="Design shot thumbnail" class="thumbnail">
-    </article>
-</div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="about container">
-<h2><span class="highlight">About</span> Me</h2>
-<p class="description">An overview of my evolution from a graduate to a UI/UX professional.</p>
-<div class="about-wrapper">
-  <div class="about-content">
-      <div class="profile-container">
-          <div class="profile-frame">
-              <img src="./assets/my-image.webp" alt="Yogesh's profile photo" class="profile-photo">
-          </div>
+          </a>
+        </article>
       </div>
-      
-      <div class="about-text">
-          <p class="about-paragraph">
-              I'm a UI/UX designer with a passion for crafting thoughtful, user-centered experiences. I bring a unique perspective to design, balancing creative problem-solving with a deep understanding of business objectives and logical decision-making.
-          </p>
-          
-          <p class="about-paragraph">
-              Apart from designing, I like to attend design workshops for vibe check, learn new tools because I'm always eager to learn and grow.
-          </p>
-          
-          <p class="about-paragraph">
-              When I'm not in front of a screen, you'll find me nurturing my plants, hitting the gym, or catching up with friends over long phone calls 😊
-          </p>
+
+      <div class="works-container" id="shots" role="tabpanel" aria-labelledby="shots-tab">
+        <article class="work-card">
+          <img src="./assets/20 March 2025 - Cyber Threats Monitoring Dashboard.png" alt="Design shot thumbnail" class="thumbnail">
+        </article>
+        <article class="work-card">
+          <img src="./assets/20 March 2025 - Cyber Threats Monitoring Dashboard.png" alt="Design shot thumbnail" class="thumbnail">
+        </article>
+        <article class="work-card">
+          <img src="./assets/20 March 2025 - Cyber Threats Monitoring Dashboard.png" alt="Design shot thumbnail" class="thumbnail">
+        </article>
+        <article class="work-card">
+          <img src="./assets/20 March 2025 - Cyber Threats Monitoring Dashboard.png" alt="Design shot thumbnail" class="thumbnail">
+        </article>
       </div>
-  </div>
-
-  <div class="experience-education">
-    <h3 class="section-subtitle">Experience & Education</h3>
-    <!-- Experience Section -->
-    <div class="experience-section">
-        <div class="experience-item">
-            <div class="company-logo">
-                <img src="./assets/presidio-logo.png" alt="Company logo">
-            </div>
-            <div class="experience-details">
-                <h4 class="company-name">Presidio</h4>
-                <p class="experience-period">May 2024 - Present</p>
-            </div>
-            <div class="degree-info">
-                <p>Associate UI UX Designer</p>
-                <p class="specialization">Full Time</p>
-            </div>
-        </div>
-
-        <div class="experience-item">
-            <div class="company-logo">
-                <img src="./assets/presidio-logo.png" alt="Company logo">
-            </div>
-            <div class="experience-details">
-                <h4 class="company-name">Presidio</h4>
-                <p class="experience-period">Feb 2024 - May 2024</p>
-            </div>
-            <div class="degree-info">
-                <p>UI UX Designer</p>
-                <p class="specialization">Internship</p>
-            </div>
-        </div>
-        
-        <div class="experience-item">
-            <div class="company-logo">
-                <img src="./assets/salesqueen-logo.png" alt="Company logo">
-            </div>
-            <div class="experience-details">
-                <h4 class="company-name">Salesqueen Software Solutions</h4>
-                <p class="experience-period">Sep 2023 - Dec 2023</p>
-            </div>
-            <div class="degree-info">
-                <p>UI UX Designer</p>
-                <p class="specialization">Internship</p>
-            </div>
-        </div>
-        <div class="education-item">
-            <div class="institution-logo">
-                <img src="./assets/esec-logo.png" alt="Institution logo">
-            </div>
-            <div class="education-details">
-                <h4 class="institution-name">Erode Sengunthar Engineering College</h4>
-                <p class="education-period">2019 - 2023</p>
-            </div>
-            <div class="degree-info">
-                <p>Bachelor of Technology</p>
-                <p class="specialization">Chemical Engineering</p>
-            </div>
-        </div>
-    </div>
-</div>
-</section>
-
-<!-- Skills Marquee Section -->
-<section class="marquee-container" aria-label="Skills and tools">
-    <div class="fading-right" aria-hidden="true"></div>
-    <div class="fading-left" aria-hidden="true"></div>
-    <!-- Marquee items -->
-    <div class="marquee-track">
-    <!-- Original Set -->
-    <div class="marquee-item">
-        <img src="./assets/figma-logo.svg" alt="Figma logo">
-        <p>Figma</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/xd-logo.svg" alt="Adobe XD logo">
-        <p>Adobe XD</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/ai-logo.svg" alt="Adobe Illustrator logo">
-        <p>Adobe Illustrator</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/photoshop-logo.svg" alt="Adobe Photoshop logo">
-        <p>Adobe Photoshop</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/midjourney-logo.svg" alt="Midjourney logo">
-        <p>Midjourney</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/chatgpt-logo.svg" alt="ChatGPT logo">
-        <p>Chat GPT</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/webflow-logo.svg" alt="Webflow logo">
-        <p>Webflow</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/framer-logo.svg" alt="Framer logo">
-        <p>Framer</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/html-logo.svg" alt="HTML logo">
-        <p>HTML</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/css-logo.svg" alt="CSS logo">
-        <p>CSS</p>
-    </div>
-    <!-- Duplicated for infinite animation -->
-    <div class="marquee-item">
-        <img src="./assets/figma-logo.svg" alt="Figma logo">
-        <p>Figma</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/xd-logo.svg" alt="Adobe XD logo">
-        <p>Adobe XD</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/ai-logo.svg" alt="Adobe Illustrator logo">
-        <p>Adobe Illustrator</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/photoshop-logo.svg" alt="Adobe Photoshop logo">
-        <p>Adobe Photoshop</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/midjourney-logo.svg" alt="Midjourney logo">
-        <p>Midjourney</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/chatgpt-logo.svg" alt="ChatGPT logo">
-        <p>Chat GPT</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/webflow-logo.svg" alt="Webflow logo">
-        <p>Webflow</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/framer-logo.svg" alt="Framer logo">
-        <p>Framer</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/html-logo.svg" alt="HTML logo">
-        <p>HTML</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/css-logo.svg" alt="CSS logo">
-        <p>CSS</p>
-    </div>
-    <!-- Additional duplicates for smoother animation -->
-    <div class="marquee-item">
-        <img src="./assets/figma-logo.svg" alt="Figma logo">
-        <p>Figma</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/xd-logo.svg" alt="Adobe XD logo">
-        <p>Adobe XD</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/ai-logo.svg" alt="Adobe Illustrator logo">
-        <p>Adobe Illustrator</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/photoshop-logo.svg" alt="Adobe Photoshop logo">
-        <p>Adobe Photoshop</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/midjourney-logo.svg" alt="Midjourney logo">
-        <p>Midjourney</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/chatgpt-logo.svg" alt="ChatGPT logo">
-        <p>Chat GPT</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/webflow-logo.svg" alt="Webflow logo">
-        <p>Webflow</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/framer-logo.svg" alt="Framer logo">
-        <p>Framer</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/html-logo.svg" alt="HTML logo">
-        <p>HTML</p>
-    </div>
-    <div class="marquee-item">
-        <img src="./assets/css-logo.svg" alt="CSS logo">
-        <p>CSS</p>
-    </div>
-    </div>
     </section>
 
-<!-- Blogs Section -->
-<section id="blogs" class="blogs container">
-<h2>My <span class="highlight">Blogs</span></h2>
-<p class="description">
-Thoughts, insights, and explorations from my design journey.
-</p>
+    <section id="about" class="about container">
+      <h2><span class="highlight">About</span> Me</h2>
+      <p class="description">An overview of my evolution from a graduate to a UI/UX professional.</p>
+      <div class="about-wrapper">
+        <div class="about-content">
+          <div class="profile-container">
+            <div class="profile-frame">
+              <img src="./assets/my-image.webp" alt="Yogesh's profile photo" class="profile-photo">
+            </div>
+          </div>
+          
+          <div class="about-text">
+            <p class="about-paragraph">
+              I'm a UI/UX designer with a passion for crafting thoughtful, user-centered experiences. I bring a unique perspective to design, balancing creative problem-solving with a deep understanding of business objectives and logical decision-making.
+            </p>
+            
+            <p class="about-paragraph">
+              Apart from designing, I like to attend design workshops for vibe check, learn new tools because I'm always eager to learn and grow.
+            </p>
+            
+            <p class="about-paragraph">
+              When I'm not in front of a screen, you'll find me nurturing my plants, hitting the gym, or catching up with friends over long phone calls 😊
+            </p>
+          </div>
+        </div>
 
-<div class="blog-container">
-<article class="blog-card">
-    <div class="blog-image">
-        <img src="/placeholder.svg?height=250&width=400" alt="UX Design Trends">
+        <div class="experience-education">
+          <h3 class="section-subtitle">Experience & Education</h3>
+          <div class="experience-section">
+            <div class="experience-item">
+              <div class="company-logo">
+                <img src="./assets/presidio-logo.png" alt="Company logo">
+              </div>
+              <div class="experience-details">
+                <h4 class="company-name">Presidio</h4>
+                <p class="experience-period">May 2024 - Present</p>
+              </div>
+              <div class="degree-info">
+                <p>Associate UI UX Designer</p>
+                <p class="specialization">Full Time</p>
+              </div>
+            </div>
+
+            <div class="experience-item">
+              <div class="company-logo">
+                <img src="./assets/presidio-logo.png" alt="Company logo">
+              </div>
+              <div class="experience-details">
+                <h4 class="company-name">Presidio</h4>
+                <p class="experience-period">Feb 2024 - May 2024</p>
+              </div>
+              <div class="degree-info">
+                <p>UI UX Designer</p>
+                <p class="specialization">Internship</p>
+              </div>
+            </div>
+            
+            <div class="experience-item">
+              <div class="company-logo">
+                <img src="./assets/salesqueen-logo.png" alt="Company logo">
+              </div>
+              <div class="experience-details">
+                <h4 class="company-name">Salesqueen Software Solutions</h4>
+                <p class="experience-period">Sep 2023 - Dec 2023</p>
+              </div>
+              <div class="degree-info">
+                <p>UI UX Designer</p>
+                <p class="specialization">Internship</p>
+              </div>
+            </div>
+            <div class="education-item">
+              <div class="institution-logo">
+                <img src="./assets/esec-logo.png" alt="Institution logo">
+              </div>
+              <div class="education-details">
+                <h4 class="institution-name">Erode Sengunthar Engineering College</h4>
+                <p class="education-period">2019 - 2023</p>
+              </div>
+              <div class="degree-info">
+                <p>Bachelor of Technology</p>
+                <p class="specialization">Chemical Engineering</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blogs" class="blogs container">
+      <h2>My <span class="highlight">Blogs</span></h2>
+      <p class="description">
+        Thoughts, insights, and explorations from my design journey.
+      </p>
+
+      <div class="blog-container">
+        <article class="blog-card">
+          <div class="blog-image">
+            <img src="/placeholder.svg?height=250&width=400" alt="UX Design Trends">
+          </div>
+          <div class="blog-content">
+            <time class="blog-date">March 15, 2025</time>
+            <h3>UX Design Trends to Watch in 2025</h3>
+            <p>Exploring the latest trends in user experience design and how they're shaping the digital landscape.</p>
+            <a href="#" class="blog-link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-image">
+            <img src="/placeholder.svg?height=250&width=400" alt="Design Systems">
+          </div>
+          <div class="blog-content">
+            <time class="blog-date">February 28, 2025</time>
+            <h3>Building Effective Design Systems</h3>
+            <p>A comprehensive guide to creating and maintaining design systems that scale with your product.</p>
+            <a href="#" class="blog-link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-image">
+            <img src="/placeholder.svg?height=250&width=400" alt="AI in Design">
+          </div>
+          <div class="blog-content">
+            <time class="blog-date">January 10, 2025</time>
+            <h3>The Role of AI in Modern Design Workflows</h3>
+            <p>How artificial intelligence is transforming design processes and enabling new creative possibilities.</p>
+            <a href="#" class="blog-link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <a href="#" class="secondary-btn view-all">View All Posts</a>
+    </section>
+
+    <section id="contact" class="contact container">
+      <h2>Let's <span class="highlight">Grow</span> Together!</h2>
+      <p class="description">
+        Have ideas, experiences, or questions about design? <br> I'd love to hear from you. Let's exchange knowledge and grow as a creative community.
+      </p>
+      <a href="mailto:hello@yogeshdesign.com" class="primary-btn">Let's Talk</a>
+
+      <div class="social-links">
+        <a href="https://www.behance.net/yogeshsathasivam" class="social-link" aria-label="Behance"><i class="fa-brands fa-behance" aria-hidden="true"></i></a>
+        <a href="https://dribbble.com/yogeshsathasivam" class="social-link" aria-label="Dribbble"><i class="fa-brands fa-dribbble" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/yogeshsathasivam/" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/_yogesh.design/" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://x.com/Yogeshsatha2306" class="social-link" aria-label="Twitter"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="copyright">&copy; <span id="current-year">2025</span> Yogesh S. All rights reserved.</p>
     </div>
-    <div class="blog-content">
-        <time class="blog-date">March 15, 2025</time>
-        <h3>UX Design Trends to Watch in 2025</h3>
-        <p>Exploring the latest trends in user experience design and how they're shaping the digital landscape.</p>
-        <a href="#" class="blog-link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-    </div>
-</article>
+  </footer>
 
-<article class="blog-card">
-    <div class="blog-image">
-        <img src="/placeholder.svg?height=250&width=400" alt="Design Systems">
-    </div>
-    <div class="blog-content">
-        <time class="blog-date">February 28, 2025</time>
-        <h3>Building Effective Design Systems</h3>
-        <p>A comprehensive guide to creating and maintaining design systems that scale with your product.</p>
-        <a href="#" class="blog-link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-    </div>
-</article>
-
-<article class="blog-card">
-    <div class="blog-image">
-        <img src="/placeholder.svg?height=250&width=400" alt="AI in Design">
-    </div>
-    <div class="blog-content">
-        <time class="blog-date">January 10, 2025</time>
-        <h3>The Role of AI in Modern Design Workflows</h3>
-        <p>How artificial intelligence is transforming design processes and enabling new creative possibilities.</p>
-        <a href="#" class="blog-link">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-    </div>
-</article>
-</div>
-
-<a href="#" class="secondary-btn view-all">View All Posts</a>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="contact container">
-<h2>Let's <span class="highlight">Grow</span> Together!</h2>
-<p class="description">
-Have ideas, experiences, or questions about design? <br> I'd love to hear from you. Let's exchange knowledge and grow as a creative community.
-</p>
-<a href="mailto:hello@yogeshdesign.com" class="primary-btn">Let's Talk</a>
-
-<div class="social-links">
-<a href="#" class="social-link" aria-label="Behance"><i class="fa-brands fa-behance" aria-hidden="true"></i></a>
-<a href="#" class="social-link" aria-label="Dribbble"><i class="fa-brands fa-dribbble" aria-hidden="true"></i></a>
-<a href="#" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-<a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-<a href="#" class="social-link" aria-label="Twitter"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
-</div>
-</section>
-</main>
-
-<!-- Footer -->
-<footer class="footer">
-<div class="container">
-<p class="copyright">&copy; <span id="current-year">2025</span> Yogesh S. All rights reserved.</p>
-</div>
-</footer>
-
-<script src="./script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>

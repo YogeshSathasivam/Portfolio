@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Sora:wght@100..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap");
 
-/* ===== CSS VARIABLES ===== */
 :root {
   /* Colors */
   --color-primary: #ffc300;
@@ -16,36 +15,36 @@
   --color-border: #304b73;
   --color-border-light: rgba(255, 255, 255, 0.1);
   --color-border-lighter: rgba(181, 209, 247, 0.15);
-  --color-about-bg: rgba(21, 42, 72, 0.6); /* Background color for About section */
+  --color-about-bg: rgba(21, 42, 72, 0.6);
 
   /* Typography */
   --font-heading: "Sora", sans-serif;
   --font-body: "Manrope", sans-serif;
 
   /* Font Sizes */
-  --fs-xxl: 2.5rem; /* 40px */
-  --fs-xl: 1.75rem; /* 28px */
-  --fs-lg: 1.5rem; /* 24px */
-  --fs-md: 1.25rem; /* 20px */
-  --fs-base: 1rem; /* 16px */
-  --fs-sm: 0.875rem; /* 14px */
-  --fs-xs: 0.75rem; /* 12px */
+  --fs-xxl: 2.5rem;
+  --fs-xl: 1.75rem;
+  --fs-lg: 1.5rem;
+  --fs-md: 1.25rem;
+  --fs-base: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.75rem;
 
   /* Spacing */
-  --space-xxs: 0.25rem; /* 4px */
-  --space-xs: 0.5rem; /* 8px */
-  --space-sm: 0.75rem; /* 12px */
-  --space-md: 1rem; /* 16px */
-  --space-lg: 1.5rem; /* 24px */
-  --space-xl: 2rem; /* 32px */
-  --space-xxl: 2.5rem; /* 40px */
-  --space-3xl: 3rem; /* 48px */
-  --space-4xl: 4rem; /* 64px */
-  --space-5xl: 6rem; /* 96px */
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-xxl: 2.5rem;
+  --space-3xl: 3rem;
+  --space-4xl: 4rem;
+  --space-5xl: 6rem;
 
   /* Section Spacing */
-  --section-padding-top: 48px; /* Reduced from 96px to 48px */
-  --section-padding-bottom: 48px; /* Reduced from 96px to 48px */
+  --section-padding-top: 48px;
+  --section-padding-bottom: 48px;
 
   /* Border Radius */
   --radius-sm: 4px;
@@ -91,7 +90,7 @@
   }
 }
 
-/* ===== RESET ===== */
+/* Reset */
 *,
 *::before,
 *::after {
@@ -102,8 +101,8 @@
 
 html {
   scroll-behavior: smooth;
-  overscroll-behavior: auto; /* Allow pull-to-refresh */
-  overflow-x: hidden; /* Only prevent horizontal scrolling */
+  overscroll-behavior: auto;
+  overflow-x: hidden;
 }
 
 body {
@@ -112,10 +111,10 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   background: radial-gradient(50.21% 80.33% at 50% 50%, #021f46 0%, var(--color-bg-dark) 100%);
-  overflow-x: hidden; /* Only prevent horizontal scrolling */
-  overflow-y: visible; /* Explicitly allow vertical scrolling */
+  overflow-x: hidden;
+  overflow-y: visible;
   width: 100%;
-  overscroll-behavior-y: auto; /* Allow pull-to-refresh */
+  overscroll-behavior-y: auto;
 }
 
 img {
@@ -135,13 +134,12 @@ button {
   background: none;
 }
 
-/* ===== LAYOUT ===== */
-/* Fix the container padding to ensure consistent spacing */
+/* Layout */
 .container {
   max-width: 1080px;
   width: 90%;
   margin: 0 auto;
-  padding: var(--space-md); /* Add padding on all sides */
+  padding: var(--space-md);
   box-sizing: border-box;
 }
 
@@ -159,19 +157,19 @@ button {
 }
 
 main {
-  padding-top: calc(var(--space-xl) + 80px); /* Increased padding to account for fixed navbar */
-  overflow-x: hidden; /* Only prevent horizontal scrolling */
-  overflow-y: visible; /* Allow vertical scrolling */
+  padding-top: calc(var(--space-xl) + 80px);
+  overflow-x: hidden;
+  overflow-y: visible;
   width: 100%;
 }
 
 section {
-  margin: 0 auto; /* Reset margin to fix the issue */
+  margin: 0 auto;
   padding-top: var(--section-padding-top);
   padding-bottom: var(--section-padding-bottom);
   width: 100%;
-  overflow-x: hidden; /* Only prevent horizontal scrolling */
-  overflow-y: visible; /* Allow vertical scrolling */
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 @media (max-width: 776px) {
@@ -181,7 +179,7 @@ section {
   }
 }
 
-/* ===== BACKGROUND ===== */
+/* Background */
 .bg {
   position: fixed;
   background: radial-gradient(50.21% 80.33% at 50% 50%, #021f46 0%, var(--color-bg-dark) 100%);
@@ -203,7 +201,7 @@ section {
   z-index: -1;
 }
 
-/* ===== TYPOGRAPHY ===== */
+/* Typography */
 h1,
 h2,
 h3,
@@ -213,13 +211,13 @@ h6 {
   font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.2;
-  text-align: center; /* Ensure all headings are center-aligned */
+  text-align: center;
 }
 
 h1,
 h2 {
   font-size: var(--fs-xxl);
-  margin-bottom: var(--space-xs); /* Reduced from var(--space-md) to var(--space-xs) */
+  margin-bottom: var(--space-xs);
 }
 
 h3 {
@@ -233,7 +231,7 @@ h4 {
 }
 
 p {
-  margin-bottom: var(--space-sm); /* Reduced from var(--space-md) to var(--space-sm) */
+  margin-bottom: var(--space-sm);
 }
 
 .highlight {
@@ -257,12 +255,11 @@ p {
   }
 }
 
-/* Add styles for the new section subtitle */
 .section-subtitle {
   font-size: var(--fs-lg);
   font-weight: 600;
   color: var(--color-text-white);
-  margin-bottom: var(--space-sm); /* Changed from var(--space-md) to var(--space-sm) */
+  margin-bottom: var(--space-sm);
   text-align: left;
   border-bottom: 1px solid var(--color-border-light);
   padding-bottom: var(--space-xs);
@@ -275,7 +272,7 @@ p {
   }
 }
 
-/* ===== BUTTONS ===== */
+/* Buttons */
 .primary-btn {
   display: inline-flex;
   padding: var(--space-sm) var(--space-md);
@@ -318,7 +315,7 @@ p {
   transform: translateY(-2px);
 }
 
-/* ===== NAVIGATION ===== */
+/* Navigation */
 nav {
   position: fixed;
   top: 0;
@@ -379,7 +376,6 @@ nav {
   color: var(--color-primary);
 }
 
-/* Underline Animation */
 .menu-item::after {
   content: "";
   position: absolute;
@@ -396,7 +392,6 @@ nav {
   left: 0;
 }
 
-/* Hamburger Menu */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -414,7 +409,6 @@ nav {
   transition: var(--transition-normal);
 }
 
-/* Hamburger animation */
 .hamburger.active div:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
@@ -427,7 +421,6 @@ nav {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Navigation Responsive Styles */
 @media (min-width: 777px) {
   .menu .primary-btn {
     display: none;
@@ -439,7 +432,6 @@ nav {
 }
 
 @media (max-width: 776px) {
-  /* Fix navbar position */
   nav {
     position: fixed !important;
     top: 0 !important;
@@ -459,7 +451,6 @@ nav {
     transform: none !important;
   }
 
-  /* Mobile menu styles */
   .menu {
     display: none;
     position: absolute;
@@ -501,7 +492,6 @@ nav {
     display: flex;
   }
 
-  /* Update main padding to account for the fixed navbar */
   main {
     padding-top: 70px !important;
   }
@@ -521,15 +511,12 @@ nav {
     padding: var(--space-xxs);
   }
 
-  /* Update main padding for smaller screens */
   main {
     padding-top: 60px !important;
   }
 }
 
-/* Update hero section margin/padding to work with fixed navbar */
-
-/* ===== HERO SECTION ===== */
+/* Hero Section */
 .hero {
   display: flex;
   flex-direction: column;
@@ -542,7 +529,7 @@ nav {
 
 @media (min-width: 777px) {
   .hero {
-    margin: 60px auto; /* Adjusted margin for desktop */
+    margin: 60px auto;
     padding-top: 20px;
   }
 }
@@ -596,20 +583,18 @@ nav {
   gap: var(--space-lg);
 }
 
-/* Hero Section Responsive Styles */
 @media (max-width: 1024px) {
   .hero {
-    margin: 40px auto 80px; /* Adjusted margin */
+    margin: 40px auto 80px;
   }
 }
 
 @media (max-width: 776px) {
   .hero {
-    margin: 20px auto 64px; /* Adjusted margin */
+    margin: 20px auto 64px;
   }
 
   .hero-btns {
-    flex-direction: column;
     gap: var(--space-md);
   }
 
@@ -621,15 +606,15 @@ nav {
 
 @media (max-width: 480px) {
   .hero {
-    margin: 10px auto 48px; /* Adjusted margin */
+    margin: 10px auto 48px;
   }
 
   .hero-btns {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 }
 
-/* ===== MARQUEE SECTION ===== */
+/* Marquee Section */
 .marquee-container {
   padding: var(--space-md) 80px;
   display: flex;
@@ -645,11 +630,10 @@ nav {
     rgba(255, 255, 255, 0.01) 100%
   );
   overflow: hidden;
-  margin-bottom: var(--space-xl); /* Added margin at the bottom */
+  margin-bottom: var(--space-xl);
   box-sizing: border-box;
 }
 
-/* Marquee borders */
 .marquee-container::before,
 .marquee-container::after {
   content: "";
@@ -673,7 +657,6 @@ nav {
   bottom: 0;
 }
 
-/* Marquee items */
 .marquee-item {
   display: flex;
   align-items: center;
@@ -717,7 +700,6 @@ nav {
   z-index: 2;
 }
 
-/* Marquee animation */
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);
@@ -736,7 +718,6 @@ nav {
   min-width: 100%;
 }
 
-/* Marquee Responsive Styles */
 @media (max-width: 776px) {
   .marquee-container {
     padding: var(--space-md) 40px;
@@ -755,7 +736,7 @@ nav {
   }
 }
 
-/* ===== WORKS SECTION ===== */
+/* Works Section */
 .my-works {
   padding-top: var(--section-padding-top);
   padding-bottom: var(--section-padding-bottom);
@@ -766,7 +747,6 @@ nav {
   width: 100%;
 }
 
-/* Tabs */
 .tabs {
   display: flex;
   min-width: 200px;
@@ -799,7 +779,6 @@ nav {
   border-radius: 6px;
 }
 
-/* Work Cards */
 .works-container {
   display: none;
   flex-direction: column;
@@ -817,7 +796,6 @@ nav {
   transform: translateY(0);
 }
 
-/* Project Card Style */
 .work-card {
   width: 100%;
   background: var(--color-about-bg);
@@ -829,7 +807,6 @@ nav {
   box-sizing: border-box;
 }
 
-/* Work card link styles */
 .work-card-link {
   display: block;
   width: 100%;
@@ -851,7 +828,6 @@ nav {
   box-sizing: border-box;
 }
 
-/* Updated work-image class */
 .work-image {
   flex: 0 0 45%;
   display: flex;
@@ -859,10 +835,9 @@ nav {
   justify-content: center;
   overflow: hidden;
   position: relative;
-  aspect-ratio: 4 / 3; /* Enforce 4:3 aspect ratio */
+  aspect-ratio: 4 / 3;
 }
 
-/* Updated work-image img */
 .work-image img {
   width: 100%;
   height: 100%;
@@ -874,7 +849,6 @@ nav {
   bottom: 0;
 }
 
-/* Updated work-content class */
 .work-content {
   flex: 0 0 55%;
   padding: var(--space-xl);
@@ -922,8 +896,6 @@ nav {
   text-align: left;
 }
 
-/* Shot Cards (for the Shots tab) */
-/* Update the shots section grid layout to maintain 2 columns until mobile */
 #shots.active {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -933,13 +905,12 @@ nav {
   box-sizing: border-box;
 }
 
-/* Update the shot card styles to ensure 3:2 aspect ratio for images */
 .shot-image {
   width: 100%;
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  aspect-ratio: 4 / 3; /* Changed from 3/2 to 4/3 */
+  aspect-ratio: 4 / 3;
 }
 
 .shot-thumbnail {
@@ -948,20 +919,16 @@ nav {
   object-fit: cover;
 }
 
-/* Works Section Responsive Styles */
 @media (max-width: 1024px) {
-  /* Work card responsive adjustments for tablet - maintain horizontal layout */
   .work-card-inner {
     flex-direction: row;
   }
 
-  /* Updated work-image for tablet */
   .work-image {
     flex: 0 0 40%;
-    aspect-ratio: 4 / 3; /* Maintain 4:3 aspect ratio */
+    aspect-ratio: 4 / 3;
   }
 
-  /* Updated work-content for tablet - padding on all sides */
   .work-content {
     flex: 0 0 60%;
     padding: var(--space-lg);
@@ -986,10 +953,10 @@ nav {
   .work-image {
     flex: 0 0 40%;
     position: relative;
-    aspect-ratio: 4 / 3; /* Enforce 4:3 aspect ratio */
-    height: auto; /* Remove fixed height */
-    min-height: 0; /* Remove min-height */
-    width: auto; /* Let width be determined by flex and aspect ratio */
+    aspect-ratio: 4 / 3;
+    height: auto;
+    min-height: 0;
+    width: auto;
   }
 
   .work-image img {
@@ -1007,7 +974,6 @@ nav {
   }
 }
 
-/* Add a more specific media query for the problematic range */
 @media (min-width: 777px) and (max-width: 930px) {
   .work-card-inner {
     display: flex;
@@ -1018,10 +984,10 @@ nav {
   .work-image {
     flex: 0 0 40%;
     position: relative;
-    aspect-ratio: 4 / 3 !important; /* Force 4:3 aspect ratio with !important */
-    height: auto !important; /* Override any height settings */
-    min-height: 0 !important; /* Override any min-height settings */
-    width: auto; /* Let width be determined by flex */
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    width: auto;
   }
 
   .work-content {
@@ -1034,17 +1000,15 @@ nav {
     width: 90%;
   }
 
-  /* Work card responsive adjustments for mobile */
   .work-card-inner {
     flex-direction: column;
   }
 
-  /* Updated work-image for mobile */
   .work-image {
     flex: 0 0 auto;
     position: relative;
-    aspect-ratio: 4 / 3; /* Maintain 4:3 aspect ratio */
-    height: auto; /* Remove fixed height */
+    aspect-ratio: 4 / 3;
+    height: auto;
     width: 100%;
   }
 
@@ -1057,22 +1021,19 @@ nav {
     object-fit: cover;
   }
 
-  /* Updated work-content for mobile - padding on all sides */
   .work-content {
     flex: 0 0 auto;
     padding: var(--space-md);
   }
 
-  /* Shot cards responsive for mobile */
   #shots.active {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
   }
 
-  /* Fix for work cards on mobile */
   .work-card {
-    margin: 0 var(--space-xs); /* Add margin to cards */
-    width: calc(100% - var(--space-xs) * 2); /* Adjust width to account for margin */
+    margin: 0 var(--space-xs);
+    width: calc(100% - var(--space-xs) * 2);
   }
 }
 
@@ -1086,7 +1047,6 @@ nav {
     font-size: var(--fs-sm);
   }
 
-  /* Keep consistent padding for work-content */
   .work-content {
     padding: var(--space-md);
   }
@@ -1104,7 +1064,7 @@ nav {
   }
 }
 
-/* ===== ABOUT SECTION ===== */
+/* About Section */
 .about {
   padding-top: var(--section-padding-top);
   padding-bottom: var(--section-padding-bottom);
@@ -1116,19 +1076,17 @@ nav {
   width: 100%;
 }
 
-/* About wrapper to contain both about content and experience-education */
 .about-wrapper {
   width: 100%;
   position: relative;
   background-color: var(--color-about-bg);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border-light);
-  padding: var(--space-xl) var(--space-lg); /* Adjusted padding */
+  padding: var(--space-xl) var(--space-lg);
   margin-top: var(--space-md);
   box-sizing: border-box;
 }
 
-/* Make the about content more responsive */
 .about-content {
   display: flex;
   flex-wrap: wrap;
@@ -1140,7 +1098,6 @@ nav {
   box-sizing: border-box;
 }
 
-/* Update for About section without image */
 .about-content.no-image {
   justify-content: center;
 }
@@ -1150,7 +1107,6 @@ nav {
   width: 100%;
 }
 
-/* Update the about-text class to ensure proper text wrapping */
 .about-text {
   flex: 1;
   min-width: 280px;
@@ -1159,16 +1115,15 @@ nav {
   gap: var(--space-md);
   width: 100%;
   box-sizing: border-box;
-  padding-right: var(--space-md); /* Add consistent padding */
+  padding-right: var(--space-md);
 }
 
-/* Update profile container for better responsiveness */
 .profile-container {
-  flex: 0 0 200px; /* Fixed width */
+  flex: 0 0 200px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin-bottom: var(--space-md); /* Add bottom margin for mobile */
+  margin-bottom: var(--space-md);
 }
 
 .profile-frame {
@@ -1177,7 +1132,7 @@ nav {
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transform: rotate(-2deg);
-  width: 180px; /* Fixed width */
+  width: 180px;
   max-width: 100%;
 }
 
@@ -1188,7 +1143,6 @@ nav {
   display: block;
 }
 
-/* Update the about-paragraph class to ensure proper text wrapping */
 .about-paragraph {
   color: var(--color-text-light);
   margin-bottom: var(--space-md);
@@ -1198,20 +1152,18 @@ nav {
   max-width: 100%;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  hyphens: auto; /* Enable hyphenation for better text wrapping */
+  hyphens: auto;
   text-align: left;
 }
 
-/* Update experience-education section for better responsiveness */
 .experience-education {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--space-md); /* Changed from var(--space-lg) to var(--space-md) */
+  gap: var(--space-md);
   box-sizing: border-box;
 }
 
-/* Experience and Education Styles */
 .experience-section {
   width: 100%;
   box-sizing: border-box;
@@ -1220,8 +1172,8 @@ nav {
 .experience-item,
 .education-item {
   display: flex;
-  align-items: flex-start; /* Change from center to flex-start for top alignment */
-  padding: var(--space-sm) 0; /* Changed from var(--space-md) to var(--space-sm) */
+  align-items: flex-start;
+  padding: var(--space-sm) 0;
   border-bottom: 1px solid var(--color-border-light);
   position: relative;
   width: 100%;
@@ -1237,16 +1189,16 @@ nav {
 .institution-logo {
   flex: 0 0 60px;
   height: 60px;
-  min-width: 60px; /* Ensure minimum width */
+  min-width: 60px;
   background: var(--color-bg-blue-light);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin-right: var(--space-md); /* Standard spacing between logo and text */
-  align-self: flex-start; /* Align to the top */
-  margin-top: 4px; /* Small top margin for better visual alignment */
+  margin-right: var(--space-md);
+  align-self: flex-start;
+  margin-top: 4px;
 }
 
 .company-logo img,
@@ -1259,7 +1211,7 @@ nav {
 .experience-details,
 .education-details {
   flex: 1;
-  min-width: 0; /* Allow text to wrap */
+  min-width: 0;
 }
 
 .company-name,
@@ -1269,7 +1221,7 @@ nav {
   color: var(--color-text-white);
   margin-bottom: var(--space-xxs);
   text-align: left;
-  word-break: break-word; /* Allow long names to break */
+  word-break: break-word;
 }
 
 .experience-period,
@@ -1297,13 +1249,12 @@ nav {
 .specialization {
   color: var(--color-text-muted);
   font-style: italic;
-  display: block; /* Always display as block */
+  display: block;
   font-size: var(--fs-sm);
   margin-top: 2px;
   text-align: right;
 }
 
-/* About Section Responsive Styles */
 @media (max-width: 776px) {
   .about-wrapper {
     padding: var(--space-lg);
@@ -1316,12 +1267,10 @@ nav {
     gap: var(--space-md);
   }
 
-  /* Ensure about paragraphs don't overflow */
   .about-paragraph {
     padding-right: 0;
   }
 
-  /* Experience and Education mobile layout */
   .experience-item,
   .education-item {
     flex-wrap: wrap;
@@ -1346,7 +1295,7 @@ nav {
 @media (max-width: 480px) {
   .about-wrapper {
     padding: var(--space-md);
-    border-radius: var(--radius-md); /* Smaller border radius on mobile */
+    border-radius: var(--radius-md);
   }
 
   .profile-container {
@@ -1368,14 +1317,13 @@ nav {
 
   .job-title,
   .degree-info {
-    margin-left: 66px; /* Logo width (50px) + right margin (16px) */
+    margin-left: 66px;
     font-size: var(--fs-sm);
   }
 
-  /* Add this media query to adjust padding for smaller screens */
   .about-text {
-    padding-right: 0; /* Remove right padding on very small screens */
-    padding: 0 var(--space-xs); /* Add consistent padding on all sides */
+    padding-right: 0;
+    padding: 0 var(--space-xs);
   }
 
   .about-content {
@@ -1397,7 +1345,7 @@ nav {
     flex: 0 0 40px;
     height: 40px;
     min-width: 40px;
-    margin-right: var(--space-md); /* Keep the same spacing as larger screens */
+    margin-right: var(--space-md);
   }
 
   .experience-details,
@@ -1407,18 +1355,17 @@ nav {
 
   .job-title,
   .degree-info {
-    margin-left: 56px; /* Logo width (40px) + right margin (16px) */
+    margin-left: 56px;
   }
 
-  /* Add these new rules for very small screens */
   .about-text {
-    min-width: 100%; /* Override the min-width for very small screens */
-    padding-right: 0; /* Remove right padding on very small screens */
+    min-width: 100%;
+    padding-right: 0;
   }
 
   .about-paragraph {
-    font-size: calc(var(--fs-base) - 1px); /* Slightly smaller font size */
-    word-break: break-word; /* Force word breaks if needed */
+    font-size: calc(var(--fs-base) - 1px);
+    word-break: break-word;
   }
 
   .about-content {
@@ -1429,11 +1376,11 @@ nav {
 
 @media (max-width: 576px) {
   .degree-info p {
-    line-height: 1.4; /* Improve line height for readability */
+    line-height: 1.4;
   }
 }
 
-/* ===== BLOGS SECTION ===== */
+/* Blogs Section */
 .blogs {
   padding-top: var(--section-padding-top);
   padding-bottom: var(--section-padding-bottom);
@@ -1504,7 +1451,7 @@ nav {
   font-size: var(--fs-md);
   margin-bottom: var(--space-sm);
   line-height: 1.4;
-  text-align: left; /* Explicitly set left alignment */
+  text-align: left;
 }
 
 .blog-content p {
@@ -1531,14 +1478,13 @@ nav {
   margin-top: var(--space-md);
 }
 
-/* Blogs Section Responsive Styles */
 @media (max-width: 776px) {
   .blog-card {
     min-width: 280px;
   }
 }
 
-/* ===== CONTACT SECTION ===== */
+/* Contact Section */
 .contact {
   padding-top: var(--section-padding-top);
   padding-bottom: var(--section-padding-bottom);
@@ -1587,7 +1533,6 @@ nav {
   transform: translateY(-3px);
 }
 
-/* Contact Section Responsive Styles */
 @media (max-width: 480px) {
   .social-links {
     flex-wrap: wrap;
@@ -1596,7 +1541,7 @@ nav {
   }
 }
 
-/* ===== FOOTER ===== */
+/* Footer */
 .footer {
   padding: var(--space-lg) 0;
   text-align: center;
@@ -1609,28 +1554,23 @@ nav {
   margin-bottom: 0;
 }
 
-/* Footer Responsive Styles */
 @media (max-width: 480px) {
   .footer {
     padding: var(--space-md) 0;
   }
 }
 
-/* Update the container class to maintain proper padding on mobile */
-/* Fix for mobile views */
 @media (max-width: 776px) {
   .container {
-    width: 100%; /* Use full width */
-    padding: 0 var(--space-md); /* Keep consistent padding */
+    width: 100%;
+    padding: 0 var(--space-md);
   }
 
-  /* Work card responsive adjustments for mobile */
   .work-card {
-    margin: 0 var(--space-xs); /* Add margin to cards */
-    width: calc(100% - var(--space-xs) * 2); /* Adjust width to account for margin */
+    margin: 0 var(--space-xs);
+    width: calc(100% - var(--space-xs) * 2);
   }
 
-  /* About section responsive adjustments */
   .about-wrapper {
     margin: 0 var(--space-xs);
     width: calc(100% - var(--space-xs) * 2);
@@ -1638,29 +1578,24 @@ nav {
   }
 }
 
-/* Additional fixes for very small screens */
 @media (max-width: 480px) {
   .container {
-    padding: var(--space-sm); /* Slightly smaller padding for very small screens */
+    padding: var(--space-sm);
   }
 }
 
-/* Update the responsive styles for mobile */
 @media (max-width: 776px) {
-  /* Keep the container padding consistent */
   .container {
     width: 100%;
-    padding: var(--space-md); /* Ensure padding on all sides */
+    padding: var(--space-md);
   }
 
-  /* Ensure nav has proper spacing on mobile */
   nav {
     width: 90%;
     margin: var(--space-md) auto;
     padding: var(--space-xs) var(--space-md);
   }
 
-  /* Fix section padding */
   section {
     padding-top: var(--section-padding-top);
     padding-bottom: var(--section-padding-bottom);
@@ -1669,10 +1604,9 @@ nav {
   }
 }
 
-/* Additional fixes for very small screens */
 @media (max-width: 480px) {
   .container {
-    padding: var(--space-sm); /* Slightly smaller padding but still present */
+    padding: var(--space-sm);
   }
 
   nav {
