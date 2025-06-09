@@ -67,7 +67,10 @@ function toggleMenu() {
     document.body.classList.add("js-animation-ready")
   
     // Initialize work card animations with a slight delay to ensure cards are visible first
-    setTimeout(initWorkCardAnimations, 100)
+    setTimeout(() => {
+      initWorkCardAnimations()
+      initBlogCardAnimations()
+    }, 100)
   })
   
   // Function to initialize work card animations
@@ -104,11 +107,82 @@ function toggleMenu() {
     })
   }
   
-  // Re-initialize animations when page is refreshed or when switching tabs
-  document.addEventListener("DOMContentLoaded", () => {
-    // Set initial scroll position
-    lastScrollTop = window.scrollY || document.documentElement.scrollTop
+  // Function to initialize blog card animations
+  function initBlogCardAnimations() {
+    // Get all blog cards
+    const blogCards = document.querySelectorAll('.blog-card')
+    
+    // Create an Intersection Observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // Add animation class when card is visible
+          if (entry.isIntersecting) {
+            // If scrolling down or initial load, add the animate class
+            entry.target.classList.add('animate')
+          } else {
+            // If scrolling up and element is no longer visible, reset animation
+            if (scrollDirection === "up") {
+              entry.target.classList.remove('animate')
+            }
+          }
+        })
+      },
+      {
+        root: null,
+        threshold: 0.15,
+        rootMargin: '0px',
+      }
+    )
+    
+    // Add delay data attribute and observe each blog card
+    blogCards.forEach((card, index) => {
+      card.dataset.delay = index * 100 // Stagger animation by 100ms per card
+      observer.observe(card)
+    })
+  }
   
-    // Initialize animations
-    initWorkCardAnimations()
-  })  
+  // Handle menu item clicks for smooth scrolling with proper offset
+  document.addEventListener("DOMContentLoaded", () => {
+    // Get all menu items that link to sections on the page
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    menuItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        // Check if the link is an anchor link (starts with #)
+        const href = item.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          
+          // Get the target element
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            // Close the mobile menu if it's open
+            const menu = document.querySelector(".menu");
+            const hamburger = document.querySelector(".hamburger");
+            if (menu.classList.contains("active")) {
+              menu.classList.remove("active");
+              hamburger.classList.remove("active");
+            }
+            
+            // Calculate the actual navbar height
+            const navbar = document.querySelector('nav');
+            const navbarHeight = navbar ? navbar.offsetHeight : 0;
+            const additionalOffset = 20; // Add some extra spacing
+            
+            // Get the element's position
+            const elementPosition = targetElement.offsetTop;
+            const offsetPosition = elementPosition - navbarHeight - additionalOffset;
+            
+            // Scroll to the element with proper offset
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+  });

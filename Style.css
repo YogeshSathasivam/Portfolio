@@ -170,12 +170,14 @@ section {
   width: 100%;
   overflow-x: hidden;
   overflow-y: visible;
+  scroll-margin-top: 120px; /* Adds space when scrolling to section */
 }
 
 @media (max-width: 776px) {
   section {
     padding-left: var(--space-md);
     padding-right: var(--space-md);
+    scroll-margin-top: 80px; /* Adjust for mobile navbar height */
   }
 }
 
@@ -513,6 +515,10 @@ nav {
 
   main {
     padding-top: 60px !important;
+  }
+
+  section {
+    scroll-margin-top: 70px; /* Adjust for smallest mobile navbar height */
   }
 }
 
@@ -1392,24 +1398,41 @@ nav {
 }
 
 .blog-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
   gap: var(--space-xl);
-  justify-content: center;
   width: 100%;
-  box-sizing: border-box;
+  margin: var(--space-xl) 0;
+}
+
+@media (min-width: 768px) {
+  .blog-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .blog-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .blog-card {
-  flex: 1;
-  min-width: 300px;
-  max-width: 350px;
+  display: flex;
+  flex-direction: column;
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--color-bg-blue);
   border: 1px solid var(--color-border);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-  box-sizing: border-box;
+  height: 100%;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: transform 0.4s ease, box-shadow 0.3s ease, opacity 0.4s ease;
+}
+
+.blog-card.animate {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .blog-card:hover {
@@ -1418,6 +1441,7 @@ nav {
 }
 
 .blog-image {
+  position: relative;
   width: 100%;
   height: 200px;
   overflow: hidden;
@@ -1427,23 +1451,54 @@ nav {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-normal);
+  transition: transform 0.5s ease;
 }
 
 .blog-card:hover .blog-image img {
   transform: scale(1.05);
 }
 
-.blog-content {
-  padding: var(--space-lg);
+.overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--color-bg-dark)/0.7, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.blog-date {
-  display: block;
-  color: var(--color-primary);
-  font-size: var(--fs-sm);
-  margin-bottom: var(--space-xs);
-  text-align: left;
+.blog-card:hover .overlay-gradient {
+  opacity: 1;
+}
+
+.blog-badge {
+  position: absolute;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.blog-card:hover .blog-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blog-badge span {
+  display: inline-block;
+  padding: var(--space-xxs) var(--space-xs);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-blue-light);
+  color: var(--color-text-white);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.blog-content {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .blog-content h3 {
@@ -1457,30 +1512,61 @@ nav {
 .blog-content p {
   color: var(--color-text-muted);
   font-size: var(--fs-base);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+  text-align: left;
+  flex-grow: 1;
+}
+
+.blog-date {
+  display: block;
+  color: var(--color-primary);
+  font-size: var(--fs-xs);
+  margin-bottom: var(--space-xs);
   text-align: left;
 }
 
 .blog-link {
   color: var(--color-primary);
   font-weight: 600;
+  font-size: var(--fs-sm);
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  transition: gap var(--transition-normal);
+  margin-top: auto;
+  margin-bottom: var(--space-sm);
+  align-self: flex-start;
 }
 
-.blog-link:hover {
-  gap: var(--space-sm);
+.blog-link i {
+  transition: transform 0.3s ease;
+}
+
+.blog-link:hover i {
+  transform: translateX(4px);
 }
 
 .view-all {
   margin-top: var(--space-md);
+  align-self: center; /* Center the button horizontally */
+  width: auto; /* Prevent full width stretching */
+}
+
+/* Staggered animation timing */
+.blog-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.blog-card:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.blog-card:nth-child(3) {
+  transition-delay: 0.3s;
 }
 
 @media (max-width: 776px) {
   .blog-card {
-    min-width: 280px;
+    min-width: 100%;
   }
 }
 
