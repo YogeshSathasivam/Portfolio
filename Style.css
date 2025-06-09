@@ -1528,7 +1528,7 @@ nav {
 
 .blog-date {
   display: block;
-  color: var(--color-primary);
+  color: var(--color-text-muted);
   font-size: var(--fs-xs);
   margin-bottom: var(--space-xs);
   text-align: left;
