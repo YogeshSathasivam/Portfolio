@@ -142,16 +142,16 @@ function toggleMenu() {
     })
   }
   
-  // Handle menu item clicks for smooth scrolling with proper offset
+  // Handle all anchor link clicks for smooth scrolling with proper offset
   document.addEventListener("DOMContentLoaded", () => {
-    // Get all menu items that link to sections on the page
-    const menuItems = document.querySelectorAll('.menu-item');
+    // Get all anchor links that point to sections on the page (including menu items and buttons)
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
     
-    menuItems.forEach(item => {
-      item.addEventListener('click', (e) => {
+    anchorLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
         // Check if the link is an anchor link (starts with #)
-        const href = item.getAttribute('href');
-        if (href.startsWith('#')) {
+        const href = link.getAttribute('href');
+        if (href.startsWith('#') && href !== '#') {
           e.preventDefault();
           
           // Get the target element
