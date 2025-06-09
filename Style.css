@@ -821,11 +821,6 @@ nav {
   text-decoration: none;
 }
 
-.work-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
 .work-card-inner {
   display: flex;
   flex-direction: row;
@@ -853,6 +848,11 @@ nav {
   left: 0;
   right: 0;
   bottom: 0;
+  transition: transform 0.5s ease;
+}
+
+.work-card:hover .work-image img {
+  transform: scale(1.05);
 }
 
 .work-content {
@@ -900,6 +900,26 @@ nav {
   font-size: var(--fs-base);
   line-height: 1.6;
   text-align: left;
+}
+
+.work-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: auto;
+  margin-bottom: var(--space-sm);
+  align-self: flex-start;
+}
+
+.work-link i {
+  transition: transform 0.3s ease;
+}
+
+.work-card-link:hover .work-link i {
+  transform: translateX(4px);
 }
 
 #shots.active {
@@ -1431,7 +1451,7 @@ nav {
   flex-direction: column;
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--color-bg-blue);
+  background: var(--color-about-bg);
   border: 1px solid var(--color-border);
   height: 100%;
   opacity: 0;
@@ -1447,6 +1467,14 @@ nav {
 .blog-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
 }
 
 .blog-image {
@@ -1550,7 +1578,7 @@ nav {
   transition: transform 0.3s ease;
 }
 
-.blog-link:hover i {
+.blog-card-link:hover .blog-link i {
   transform: translateX(4px);
 }
 
@@ -1715,7 +1743,7 @@ nav {
 .work-card {
   opacity: 1; /* Start visible */
   transform: scale(1); /* Start at full size */
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow var(--transition-fast);
 }
 
 /* Only apply the initial hidden state when JavaScript is ready */
@@ -1728,6 +1756,17 @@ nav {
 .work-card.animate {
   opacity: 1;
   transform: scale(1);
+}
+
+/* Hover effect that works with animation states */
+.work-card:hover {
+  transform: translateY(-5px) scale(1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.work-card.animate:hover {
+  transform: translateY(-5px) scale(1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Stagger the animations for a nicer effect */
