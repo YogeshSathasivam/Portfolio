@@ -1745,6 +1745,12 @@ body:not(.banner-hidden) {
 @media (max-width: 776px) {
   .blog-card {
     min-width: 100%;
+    margin: 0 var(--space-xs);
+    width: calc(100% - var(--space-xs) * 2);
+  }
+
+  .blog-container {
+    padding: 0 var(--space-xs);
   }
 }
 
