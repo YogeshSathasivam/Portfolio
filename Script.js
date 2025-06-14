@@ -8,6 +8,27 @@ function toggleMenu() {
     hamburger.classList.toggle("active")
   }
   
+  // Close development banner
+  function closeBanner() {
+    const banner = document.querySelector(".dev-banner")
+    const body = document.body
+    
+    if (banner) {
+      banner.classList.add("hidden")
+      body.classList.add("banner-hidden")
+      
+      // Remove banner from DOM after animation
+      setTimeout(() => {
+        banner.remove()
+      }, 300)
+      
+      // Note: Removed localStorage - banner will show again on page refresh
+    }
+  }
+  
+  // Note: Removed the DOMContentLoaded listener that checked localStorage
+  // Banner will now always show on page load
+  
   // Close menu when clicking outside
   document.addEventListener("click", (event) => {
     const menu = document.querySelector(".menu")

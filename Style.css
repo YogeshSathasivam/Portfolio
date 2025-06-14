@@ -157,7 +157,7 @@ button {
 }
 
 main {
-  padding-top: calc(var(--space-xl) + 80px);
+  padding-top: calc(var(--space-xl) + 120px); /* Adjusted for banner + nav */
   overflow-x: hidden;
   overflow-y: visible;
   width: 100%;
@@ -436,7 +436,7 @@ nav {
 @media (max-width: 776px) {
   nav {
     position: fixed !important;
-    top: 0 !important;
+    top: 40px !important; /* Account for banner */
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
@@ -451,6 +451,11 @@ nav {
     backdrop-filter: blur(12px) !important;
     z-index: 1000 !important;
     transform: none !important;
+  }
+
+  /* When banner is hidden, move nav back to top */
+  .banner-hidden nav {
+    top: 0 !important;
   }
 
   .menu {
@@ -495,6 +500,11 @@ nav {
   }
 
   main {
+    padding-top: 110px !important; /* Adjusted for banner + mobile nav */
+  }
+
+  /* When banner is hidden, reduce main padding */
+  .banner-hidden main {
     padding-top: 70px !important;
   }
 }
@@ -502,6 +512,12 @@ nav {
 @media (max-width: 480px) {
   nav {
     padding: var(--space-xs) var(--space-sm) !important;
+    top: 32px !important; /* Account for smaller banner on mobile */
+  }
+
+  /* When banner is hidden, move nav back to top */
+  .banner-hidden nav {
+    top: 0 !important;
   }
 
   .logo {
@@ -514,11 +530,136 @@ nav {
   }
 
   main {
+    padding-top: 92px !important; /* Adjusted for banner + smaller mobile nav */
+  }
+
+  /* When banner is hidden, reduce main padding */
+  .banner-hidden main {
     padding-top: 60px !important;
   }
 
   section {
-    scroll-margin-top: 70px; /* Adjust for smallest mobile navbar height */
+    scroll-margin-top: 102px; /* Adjust for banner + mobile navbar height */
+  }
+
+  /* When banner is hidden, reduce section scroll margin */
+  .banner-hidden section {
+    scroll-margin-top: 70px;
+  }
+}
+
+/* Development Banner */
+.dev-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: linear-gradient(135deg, var(--color-bg-blue) 0%, var(--color-bg-blue-light) 100%);
+  border-bottom: 1px solid var(--color-border-light);
+  backdrop-filter: blur(12px);
+  z-index: 1001; /* Above navigation */
+  padding: var(--space-xs) 0;
+  animation: slideDownBanner 0.5s ease-out;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.dev-banner.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dev-banner-content {
+  max-width: 1080px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 0 var(--space-md);
+  position: relative;
+}
+
+.dev-banner-content i:first-child {
+  color: var(--color-primary);
+  font-size: var(--fs-base);
+}
+
+.dev-banner-content span {
+  color: var(--color-text-light);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  text-align: center;
+  flex: 1;
+}
+
+.dev-banner-close {
+  position: absolute;
+  right: var(--space-md);
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  padding: var(--space-xxs);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.dev-banner-close:hover {
+  color: var(--color-text-white);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes slideDownBanner {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Adjust body padding to account for banner */
+body:not(.banner-hidden) {
+  padding-top: 40px; /* Approximate banner height */
+}
+
+@media (max-width: 776px) {
+  .dev-banner-content {
+    width: 100%;
+    padding: 0 var(--space-sm);
+  }
+  
+  .dev-banner-content span {
+    font-size: calc(var(--fs-sm) - 1px);
+  }
+  
+  .dev-banner-close {
+    right: var(--space-sm);
+  }
+  
+  body:not(.banner-hidden) {
+    padding-top: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dev-banner-content span {
+    font-size: var(--fs-xs);
+  }
+  
+  body:not(.banner-hidden) {
+    padding-top: 32px;
   }
 }
 
