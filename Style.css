@@ -157,7 +157,7 @@ button {
 }
 
 main {
-  padding-top: calc(var(--space-xl) + 120px); /* Adjusted for banner + nav */
+  padding-top: calc(var(--space-xl) + 48px); /* Adjusted for banner + nav */
   overflow-x: hidden;
   overflow-y: visible;
   width: 100%;
