@@ -894,6 +894,8 @@ body:not(.banner-hidden) {
   width: 100%;
 }
 
+/* Tab Styles - Commented out for single shots section */
+/*
 .tabs {
   display: flex;
   min-width: 200px;
@@ -925,6 +927,7 @@ body:not(.banner-hidden) {
   background: var(--color-bg-blue-light);
   border-radius: 6px;
 }
+*/
 
 .works-container {
   display: none;
@@ -1172,9 +1175,9 @@ body:not(.banner-hidden) {
 }
 
 @media (max-width: 776px) {
-  .tabs {
+  /* .tabs {
     width: 90%;
-  }
+  } */
 
   .work-card-inner {
     flex-direction: column;
@@ -1214,14 +1217,14 @@ body:not(.banner-hidden) {
 }
 
 @media (max-width: 480px) {
-  .tabs {
+  /* .tabs {
     width: 90%;
-  }
+  } */
 
-  .tab-btn {
+  /* .tab-btn {
     padding: var(--space-xs) var(--space-md);
     font-size: var(--fs-sm);
-  }
+  } */
 
   .work-content {
     padding: var(--space-md);

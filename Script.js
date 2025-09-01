@@ -51,7 +51,8 @@ function toggleMenu() {
     lastScrollTop = st <= 0 ? 0 : st // For Mobile or negative scrolling
   })
   
-  // Tab switching functionality
+  // Tab switching functionality - Commented out for single shots section
+  /*
   document.addEventListener("DOMContentLoaded", () => {
     const tabButtons = document.querySelectorAll(".tab-btn")
     const tabContents = document.querySelectorAll(".works-container")
@@ -77,6 +78,10 @@ function toggleMenu() {
         initWorkCardAnimations()
       })
     })
+  */
+  
+  // Main initialization
+  document.addEventListener("DOMContentLoaded", () => {
   
     // Update copyright year
     const yearElement = document.getElementById("current-year")
