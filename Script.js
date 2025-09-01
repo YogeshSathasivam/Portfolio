@@ -207,3 +207,131 @@ function toggleMenu() {
       });
     });
   });
+
+// Shot Modal Functionality
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("shot-modal");
+  const modalImage = document.getElementById("modal-image");
+  const modalClose = document.querySelector(".modal-close");
+  const modalBackdrop = document.querySelector(".modal-backdrop");
+  const modalNavPrev = document.querySelector(".modal-nav-prev");
+  const modalNavNext = document.querySelector(".modal-nav-next");
+  const body = document.body;
+
+  // Get all shot thumbnails and create shots array
+  const shotThumbnails = document.querySelectorAll(".shot-thumbnail");
+  const shotsArray = Array.from(shotThumbnails).map(thumbnail => ({
+    src: thumbnail.src,
+    alt: thumbnail.alt
+  }));
+
+  let currentShotIndex = 0;
+
+  // Function to open modal
+  function openModal(imageSrc, imageAlt, index = 0) {
+    currentShotIndex = index;
+    modalImage.src = imageSrc;
+    modalImage.alt = imageAlt;
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+    body.style.overflow = "hidden"; // Prevent body scroll
+  }
+
+  // Function to navigate shots
+  function navigateShot(direction) {
+    if (direction === 'next') {
+      currentShotIndex = (currentShotIndex + 1) % shotsArray.length;
+    } else if (direction === 'prev') {
+      currentShotIndex = (currentShotIndex - 1 + shotsArray.length) % shotsArray.length;
+    }
+    
+    const currentShot = shotsArray[currentShotIndex];
+    modalImage.src = currentShot.src;
+    modalImage.alt = currentShot.alt;
+  }
+
+  // Function to close modal
+  function closeModal() {
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+    body.style.overflow = ""; // Restore body scroll
+    
+    // Clear the image src after animation
+    setTimeout(() => {
+      modalImage.src = "";
+      modalImage.alt = "";
+    }, 300);
+  }
+
+  // Add click event listeners to all shot thumbnails
+  shotThumbnails.forEach((thumbnail, index) => {
+    thumbnail.addEventListener("click", (e) => {
+      e.preventDefault();
+      const imageSrc = thumbnail.src;
+      const imageAlt = thumbnail.alt;
+      openModal(imageSrc, imageAlt, index);
+    });
+
+    // Add keyboard support for accessibility
+    thumbnail.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        const imageSrc = thumbnail.src;
+        const imageAlt = thumbnail.alt;
+        openModal(imageSrc, imageAlt, index);
+      }
+    });
+
+    // Make thumbnails focusable for keyboard navigation
+    thumbnail.setAttribute("tabindex", "0");
+  });
+
+  // Navigation button event listeners
+  modalNavPrev.addEventListener("click", () => navigateShot('prev'));
+  modalNavNext.addEventListener("click", () => navigateShot('next'));
+
+  // Close modal when clicking close button
+  modalClose.addEventListener("click", closeModal);
+
+  // Close modal when clicking backdrop
+  modalBackdrop.addEventListener("click", closeModal);
+
+  // Close modal when clicking anywhere in the modal container (outside the image)
+  const modalContainer = document.querySelector(".modal-container");
+  modalContainer.addEventListener("click", closeModal);
+
+  // Handle keyboard navigation
+  document.addEventListener("keydown", (e) => {
+    if (modal.classList.contains("active")) {
+      if (e.key === "Escape") {
+        closeModal();
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        navigateShot('prev');
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        navigateShot('next');
+      }
+    }
+  });
+
+  // Prevent modal from closing when clicking on the image or its container
+  const modalImageContainer = document.querySelector(".modal-image-container");
+  modalImage.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+  
+  modalImageContainer.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  // Handle focus trapping within modal for better accessibility
+  modal.addEventListener("keydown", (e) => {
+    if (e.key === "Tab" && modal.classList.contains("active")) {
+      // Simple focus trapping - keep focus on close button
+      if (document.activeElement !== modalClose) {
+        modalClose.focus();
+      }
+    }
+  });
+});

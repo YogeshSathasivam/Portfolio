@@ -273,35 +273,35 @@
 
       <div class="works-container" id="shots" role="tabpanel" aria-labelledby="shots-tab">
         <div class="shots-grid">
-          <article class="work-card">
-            <img src="./assets/11 March 2025 - Integration Modal.png" alt="Design shot thumbnail" class="thumbnail">
+          <article class="work-card shot-item">
+            <img src="./assets/11 March 2025 - Integration Modal.png" alt="Integration Modal Design" class="thumbnail shot-thumbnail">
           </article>
-          <article class="work-card">
-            <img src="./assets/20 March 2025 - Cyber Threats Monitoring Dashboard.png" alt="Design shot thumbnail" class="thumbnail">
+          <article class="work-card shot-item">
+            <img src="./assets/20 March 2025 - Cyber Threats Monitoring Dashboard.png" alt="Cyber Threats Monitoring Dashboard" class="thumbnail shot-thumbnail">
           </article>
-          <article class="work-card">
-            <img src="./assets/18 Mar 2025 - Habit Tracker App.png" alt="Design shot thumbnail" class="thumbnail">
+          <article class="work-card shot-item">
+            <img src="./assets/18 Mar 2025 - Habit Tracker App.png" alt="Habit Tracker App Design" class="thumbnail shot-thumbnail">
           </article>
-          <article class="work-card">
-            <img src="./assets/13 March 2025 - 2FA Modal.png" alt="Design shot thumbnail" class="thumbnail">
+          <article class="work-card shot-item">
+            <img src="./assets/13 March 2025 - 2FA Modal.png" alt="2FA Modal Design" class="thumbnail shot-thumbnail">
           </article>
-          <article class="work-card">
-            <img src="./assets/19 Feb 2025 - Project Progress Tracker.png" alt="Design shot thumbnail" class="thumbnail">
+          <article class="work-card shot-item">
+            <img src="./assets/19 Feb 2025 - Project Progress Tracker.png" alt="Project Progress Tracker" class="thumbnail shot-thumbnail">
           </article>
-          <article class="work-card">
-            <img src="./assets/20 Feb 2025 - Employees Page.png" alt="Design shot thumbnail" class="thumbnail">
+          <article class="work-card shot-item">
+            <img src="./assets/20 Feb 2025 - Employees Page.png" alt="Employees Page Design" class="thumbnail shot-thumbnail">
           </article>
-          <article class="work-card">
-            <img src="./assets/21 Feb 2025 - Ecommerce Dashboard.png" alt="Design shot thumbnail" class="thumbnail">
+          <article class="work-card shot-item">
+            <img src="./assets/21 Feb 2025 - Ecommerce Dashboard.png" alt="Ecommerce Dashboard" class="thumbnail shot-thumbnail">
           </article>
-          <article class="work-card">
-            <img src="./assets/22 Feb 2025 - Ecommerce Product Landing Page.png" alt="Design shot thumbnail" class="thumbnail">
+          <article class="work-card shot-item">
+            <img src="./assets/22 Feb 2025 - Ecommerce Product Landing Page.png" alt="Ecommerce Product Landing Page" class="thumbnail shot-thumbnail">
           </article>
-          <article class="work-card">
-            <img src="./assets/24 Feb 2025 - Crypto Dashboard.png" alt="Design shot thumbnail" class="thumbnail">
+          <article class="work-card shot-item">
+            <img src="./assets/24 Feb 2025 - Crypto Dashboard.png" alt="Crypto Dashboard Design" class="thumbnail shot-thumbnail">
           </article>
-          <article class="work-card">
-            <img src="./assets/25 Feb 2025 - Mental Wellness Landing Page.png" alt="Design shot thumbnail" class="thumbnail">
+          <article class="work-card shot-item">
+            <img src="./assets/25 Feb 2025 - Mental Wellness Landing Page.png" alt="Mental Wellness Landing Page" class="thumbnail shot-thumbnail">
           </article>
         </div>
         <!-- <a href="#" class="secondary-btn view-all">View All</a> -->
@@ -479,6 +479,27 @@
       <p class="copyright">&copy; <span id="current-year">2025</span> Yogesh S. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Shot Preview Modal -->
+  <div id="shot-modal" class="shot-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-backdrop" aria-hidden="true"></div>
+    <button class="modal-close" aria-label="Close preview" title="Close (Esc)">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+    <button class="modal-nav modal-nav-prev" aria-label="Previous image" title="Previous (←)">
+      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <button class="modal-nav modal-nav-next" aria-label="Next image" title="Next (→)">
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </button>
+    <div class="modal-container">
+      <div class="modal-content">
+        <div class="modal-image-container">
+          <img id="modal-image" src="" alt="" class="modal-image">
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="./script.js"></script>
 </body>
