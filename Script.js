@@ -340,3 +340,113 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Enhanced Marquee Functionality
+document.addEventListener("DOMContentLoaded", () => {
+  const marqueeTrack = document.getElementById("marquee-track");
+  
+  if (marqueeTrack) {
+    // Get original items
+    const originalItems = Array.from(marqueeTrack.children);
+    
+    // Function to duplicate items for seamless infinite scroll
+    function duplicateMarqueeItems() {
+      // Clear existing content
+      marqueeTrack.innerHTML = '';
+      
+      // Always create enough duplicates for seamless scrolling
+      // We need at least 6 sets to ensure no gaps during animation
+      const duplicates = 6;
+      
+      // Create multiple sets of items
+      for (let i = 0; i < duplicates; i++) {
+        originalItems.forEach(item => {
+          const clone = item.cloneNode(true);
+          marqueeTrack.appendChild(clone);
+        });
+      }
+    }
+    
+    // Function to calculate and apply dynamic animation duration
+    function updateMarqueeSpeed() {
+      // Wait for DOM to be ready
+      requestAnimationFrame(() => {
+        const containerWidth = marqueeTrack.parentElement.clientWidth;
+        const screenWidth = window.innerWidth;
+        
+        // Calculate single set width (width of original 10 items)
+        const singleSetWidth = marqueeTrack.scrollWidth / 6; // We have 6 duplicate sets
+        
+        // Define speed in pixels per second based on device (aggressive speed increase)
+        let pixelsPerSecond;
+        if (screenWidth <= 480) {
+          pixelsPerSecond = 140; // Mobile: 140px/s (40% faster than previous)
+        } else if (screenWidth <= 776) {
+          pixelsPerSecond = 120; // Tablet: 120px/s (50% faster than previous)
+        } else {
+          pixelsPerSecond = 100; // Desktop: 100px/s (54% faster than previous)
+        }
+        
+        // Calculate duration: distance ÷ speed = time
+        const duration = singleSetWidth / pixelsPerSecond;
+        
+        // Ensure minimum duration for smooth animation (reduced to 4s for faster movement)
+        const finalDuration = Math.max(duration, 4);
+        
+        // Apply the calculated duration
+        marqueeTrack.style.animationDuration = `${finalDuration}s`;
+        
+        // Ensure the animation moves exactly one set width for perfect loop
+        marqueeTrack.style.setProperty('--single-set-width', `${singleSetWidth}px`);
+      });
+    }
+    
+    // Initialize marquee
+    function initMarquee() {
+      duplicateMarqueeItems();
+      
+      // Small delay to ensure DOM is ready, then multiple attempts to get accurate measurements
+      setTimeout(() => {
+        updateMarqueeSpeed();
+        
+        // Secondary check after a longer delay to ensure accuracy
+        setTimeout(() => {
+          updateMarqueeSpeed();
+        }, 200);
+      }, 100);
+    }
+    
+    // Handle resize events with throttling
+    let resizeTimeout;
+    function handleResize() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        initMarquee();
+      }, 150);
+    }
+    
+    // Initialize on load
+    initMarquee();
+    
+    // Re-initialize on window resize
+    window.addEventListener('resize', handleResize);
+    
+    // Hover pause functionality removed - marquee now scrolls continuously
+    
+    // Intersection Observer for performance optimization
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          marqueeTrack.style.animationPlayState = 'running';
+        } else {
+          // Pause animation when not visible to save resources
+          marqueeTrack.style.animationPlayState = 'paused';
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    observer.observe(marqueeTrack.parentElement);
+  }
+});
